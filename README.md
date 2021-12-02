@@ -3,7 +3,7 @@
 * [General Info](#general-info)
 * [Project Description](#project-description)
 * [Technologies](#technologies)
-* 
+
 ## General Info
 //TO-DO
 
