@@ -58,6 +58,67 @@ function CreateClass() {
                                         onChange={onChangeHandler}
                                     />
                                 </div>
+                                <div className="form-group">
+                                    <label htmlFor="">End Date</label>
+                                    <input
+                                        type="date"
+                                        className="form-control"
+                                        name="name"
+                                        value={meeting.endDate}
+                                        onChange={onChangeHandler}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="">Start Time</label>
+                                    <input
+                                        type="time"
+                                        className="form-control"
+                                        name="name"
+                                        value={meeting.startTime}
+                                        onChange={onChangeHandler}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="">End Time</label>
+                                    <input
+                                        type="time"
+                                        className="form-control"
+                                        name="name"
+                                        value={meeting.startTime}
+                                        onChange={onChangeHandler}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Days of the Week</label><br/>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Sunday" />
+                                        <label className ="form-check-label">Sunday</label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="Monday" />
+                                        <label className ="form-check-label">Monday</label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Tuesday" />
+                                        <label className ="form-check-label">Tuesday</label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Wednesday" />
+                                        <label className ="form-check-label">Wednesday</label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Thursday" />
+                                        <label className ="form-check-label">Thursday</label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Friday" />
+                                        <label className ="form-check-label">Friday</label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Saturday" />
+                                        <label className ="form-check-label">Saturday</label>
+                                    </div>
+                                </div>
                                 <br />
                                 <input
                                     type="submit"
