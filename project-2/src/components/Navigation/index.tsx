@@ -16,6 +16,7 @@ const Navigation = () => {
               menuVariant="dark"
             >
               <NavDropdown.Item href="/create-class">Create a Class</NavDropdown.Item>
+              <NavDropdown.Item href="/">Join a Class</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
@@ -24,8 +25,11 @@ const Navigation = () => {
               title="Account Options"
               menuVariant="dark"
             >
+              {/* TO-DO: Conditionally render Login, Logout, my Account*/}
               <NavDropdown.Item href="/login">Log In</NavDropdown.Item>
               <NavDropdown.Item href="/register">Register New Account</NavDropdown.Item>
+              <NavDropdown.Item href="/">Log Out</NavDropdown.Item>
+              <NavDropdown.Item href="/my-account">My Account</NavDropdown.Item>
             </NavDropdown>
           </Nav>
 
