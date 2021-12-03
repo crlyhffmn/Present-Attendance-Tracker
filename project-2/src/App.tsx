@@ -5,14 +5,9 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <Routes>
-          <Route path='/home' element={<HomePage />} />
-          {/* <Route path='/login' element={<LoginPage />} />
-          <Route path='/register' element={<RegisterPage />} /> */}
-        </Routes>
-      </div>
-
+      <Routes>
+        <Route path='/home' element={<HomePage />} />
+      </Routes>
     </BrowserRouter>
   );
 }
