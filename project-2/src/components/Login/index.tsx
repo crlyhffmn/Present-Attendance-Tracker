@@ -58,7 +58,8 @@ function Login() {
                             <input
                                 type="submit"
                                 value="Login"
-                                className="btn btn-block btn-primary"
+                                className="btn btn-block"
+                                style={{backgroundColor: "rgb(228, 111, 3)"}}
                             />
                         </form>
                         

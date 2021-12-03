@@ -20,7 +20,7 @@ const Navbar = () => {
       <div className="collapse navbar-collapse " id="Account">
         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
           <li className="nav-item ">
-            <a className="nav-link text-light" href="/login">Login</a>
+            <a className="nav-link text-light"  style={{marginRight: "15px"}} href="/login">Login</a>
           </li>
         </ul>
       </div>

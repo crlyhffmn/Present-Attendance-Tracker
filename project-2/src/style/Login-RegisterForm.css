@@ -1,8 +1,8 @@
 .wrapper{
-    background-color:gray;
+    background-color:lightgray;
     color: black;
     padding: 30px;
     border-radius: 7px;
-    box-shadow: 5px 10px rgb(255, 145, 0);
+    box-shadow: 5px 10px rgb(228, 111, 3);
     margin-top: 100px;
 }

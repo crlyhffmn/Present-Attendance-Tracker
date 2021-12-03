@@ -80,8 +80,9 @@ function Register() {
                             </div><br />
                             <input
                                 type="submit"
-                                value="Login"
-                                className="btn btn-block btn-primary"
+                                value="Register"
+                                className="btn btn-block"
+                                style={{backgroundColor: "rgb(228, 111, 3)"}}
                             />
                         </form>
                     </div>
