@@ -1,0 +1,10 @@
+> Register for an account, either as an instructor or as a student/participant
+> Log in and Log out
+> Register for Classes 
+> Approve participants for classes (instructor)
+> Create classes (instructor) 
+> Submit for attendance (participant)
+> Add assignments (instructor)
+> Grade assignments (instructor) 
+> View assignments (participant)
+> View classes (instructor & participant)
