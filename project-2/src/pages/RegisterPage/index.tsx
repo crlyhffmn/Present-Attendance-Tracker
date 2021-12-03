@@ -1,11 +1,11 @@
 import React from 'react'
-import Navbar from '../../components/Navbar'
+import Navigation from '../../components/Navigation'
 import Register from '../../components/Register/Index'
 
 function RegisterPage() {
     return (
         <div>
-            <Navbar />
+            <Navigation />
             <Register />            
         </div>
     )

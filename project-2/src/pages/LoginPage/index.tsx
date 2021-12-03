@@ -1,11 +1,11 @@
 import React from 'react'
 import Login from '../../components/Login'
-import Navbar from '../../components/Navbar'
+import Navigation from '../../components/Navigation'
 
 function LoginPage () {
     return (
         <div>
-            <Navbar />
+            <Navigation />
             <Login />
         </div>
     )

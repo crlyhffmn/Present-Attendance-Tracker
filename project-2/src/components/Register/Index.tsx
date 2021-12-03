@@ -33,63 +33,63 @@ function Register() {
     return (
         <div>
             <div>
-            <div className="row">
-                <div className="col-lg-3"></div>
-                <div className="col-lg-6">
-                    <div className="wrapper">
-                        <form onSubmit={onSubmitHandler}>
-                        <div className="form-group">
-                                <label htmlFor="">First Name</label>
+                <div className="row">
+                    <div className="col-lg-3"></div>
+                    <div className="col-lg-6">
+                        <div className="wrapper">
+                            <form onSubmit={onSubmitHandler}>
+                                <div className="form-group">
+                                    <label htmlFor="">First Name</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="firstName"
+                                        value={user.firstName}
+                                        onChange={onChangeHandler}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="">Last Name</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="lastName"
+                                        value={user.lastName}
+                                        onChange={onChangeHandler}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="">Email</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="email"
+                                        value={user.email}
+                                        onChange={onChangeHandler}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="">Password</label>
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        name="password"
+                                        value={user.password}
+                                        onChange={onChangeHandler}
+                                    />
+                                </div><br />
                                 <input
-                                    type="text"
-                                    className="form-control"
-                                    name="firstName"
-                                    value={user.firstName}
-                                    onChange={onChangeHandler}
+                                    type="submit"
+                                    value="Register"
+                                    className="btn btn-block"
+                                    style={{ backgroundColor: "rgb(228, 111, 3)" }}
                                 />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="">Last Name</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="lastName"
-                                    value={user.lastName}
-                                    onChange={onChangeHandler}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="">Email</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    name="email"
-                                    value={user.email}
-                                    onChange={onChangeHandler}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="">Password</label>
-                                <input
-                                    type="password"
-                                    className="form-control"
-                                    name="password"
-                                    value={user.password}
-                                    onChange={onChangeHandler}
-                                />
-                            </div><br />
-                            <input
-                                type="submit"
-                                value="Register"
-                                className="btn btn-block"
-                                style={{backgroundColor: "rgb(228, 111, 3)"}}
-                            />
-                        </form>
+                            </form>
+                        </div>
+                        <button className="btn"><a className="text-dark" href="/login" style={{ textDecoration: "none" }}>Already Have an Account?</a></button>
                     </div>
-                    <button className="btn"><a className="text-dark" href="/login" style={{textDecoration: "none"}}>Already Have an Account?</a></button>
                 </div>
             </div>
-        </div>
         </div>
     )
 }
