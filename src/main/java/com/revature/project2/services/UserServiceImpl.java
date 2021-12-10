@@ -30,16 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByUsername(String username) {
-        List<User> users = getAllUsers();
-        boolean exists = false;
-        long id = 0;
-        for(User u : users) {
-            if(u.getUsername().equals(username)) {
-                exists = true;
-                id = u.getId();
-            }
-        }
-        return exists ? getUserById(id):null;
+        return repository.findUserByUsername(username);
     }
 
     @Override
