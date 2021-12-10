@@ -11,7 +11,7 @@ function Login() {
     function onSubmitHandler(event: any) {
         event.preventDefault();
         console.log(user);
-        // axios.post("Put url to servlet here", user)
+        axios.post("spring.datasource.url=jdbc:mysql://localhost:3306/project2", user)
         // .then(response =>{
         //     save to state
         // })
