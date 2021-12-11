@@ -1,15 +1,28 @@
 import "../../style/NavBar.css"
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUserPlus,
+  faSignInAlt,
+  faSignOutAlt,
+  faHome,
+  faGift,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Navigation = () => {
   return (
     <Navbar variant="dark" bg="dark" expand="lg">
       <Container fluid>
-        <Navbar.Brand style={{ marginLeft: "15px" }} href="/">Present</Navbar.Brand>
+        <Navbar.Brand style={{ marginLeft: "15px" }} href="/">
+          <FontAwesomeIcon icon={faGift} />Present
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-dark-example" />
         <Navbar.Collapse id="navbar-dark-example">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
+            <Link to={""} className="nav-link">
+              <FontAwesomeIcon icon={faHome} /> Home
+            </Link>
             <NavDropdown
               id="nav-dropdown-dark-example"
               title="Class Options"
@@ -20,17 +33,12 @@ const Navigation = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <NavDropdown
-              id="nav-dropdown-dark-example"
-              title="Account Options"
-              menuVariant="dark"
-            >
-              {/* TO-DO: Conditionally render Login, Logout, my Account*/}
-              <NavDropdown.Item href="/login">Log In</NavDropdown.Item>
-              <NavDropdown.Item href="/register">Register New Account</NavDropdown.Item>
-              <NavDropdown.Item href="/">Log Out</NavDropdown.Item>
-              <NavDropdown.Item href="/my-account">My Account</NavDropdown.Item>
-            </NavDropdown>
+            <Link to={"register"} className="nav-link">
+              <FontAwesomeIcon icon={faUserPlus} /> Register
+            </Link>
+            <Link to={"login"} className="nav-link">
+              <FontAwesomeIcon icon={faSignInAlt} /> Login
+            </Link>
           </Nav>
 
         </Navbar.Collapse>
