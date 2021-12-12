@@ -6,9 +6,13 @@ import {
     faEnvelope,
     faLock
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from 'react-router-dom';
 
 
-function Register() {
+const Register = (props : any) => {
+
+    const navigate = useNavigate();
+
     const [user, setUser] = useState({
         email: "",
         password: "",
@@ -21,7 +25,9 @@ function Register() {
         axios.post('http://localhost:8081/users', user)
             .then(response => {
                 setUser(response.data);
+                localStorage.setItem('currentUser', response.data);
                 console.log(response.data);
+                navigate('/');
             })
             .catch(error => {
                 console.error(error);

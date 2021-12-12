@@ -3,9 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "../../style/Login-RegisterForm.css";
 
 function Login() {
+
+    const navigate = useNavigate();
+
     const [user, setUser] = useState({
         email: "",
         password: "",
@@ -14,9 +18,12 @@ function Login() {
     function onSubmitHandler(event: any) {
         event.preventDefault();
         console.log(user);
-        axios.get('http://localhost:8081/users/' + user.email)
+        axios.get('http://localhost:8081/users/email/' + user.email)
         .then(response => {
             console.log(response.data);
+            localStorage.setItem('currentUser', response.data);
+            setUser(response.data);
+            navigate('/')
             //save to state
         })
         .catch(error => {
