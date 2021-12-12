@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../../style/Login-RegisterForm.css";
 
 
@@ -12,14 +13,13 @@ function Register() {
 
     function onSubmitHandler(event: any) {
         event.preventDefault();
-        console.log(user);
-        // axios.post("Put url to servlet here", user)
-        // .then(response =>{
-        //     save to state
-        // })
-        // .catch(err =>{
-        //     Couldn't add to db
-        // })
+        axios.post('http://localhost:8081/users', user)
+            .then(response => {
+                console.log(response.data)
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
 
     function onChangeHandler(event: any) {

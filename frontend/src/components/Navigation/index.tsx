@@ -15,12 +15,12 @@ const Navigation = () => {
     <Navbar variant="dark" bg="dark" expand="lg">
       <Container fluid>
         <Navbar.Brand style={{ marginLeft: "15px" }} href="/">
-          <FontAwesomeIcon icon={faGift} />Present
+          <FontAwesomeIcon icon={faGift} />{' '}Present
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-dark-example" />
         <Navbar.Collapse id="navbar-dark-example">
           <Nav className="me-auto">
-            <Link to={""} className="nav-link">
+            <Link to={"/"} className="nav-link">
               <FontAwesomeIcon icon={faHome} /> Home
             </Link>
             <NavDropdown

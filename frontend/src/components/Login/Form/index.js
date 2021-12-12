@@ -68,7 +68,7 @@ class Form extends Component {
                         value={this.state.password}
                         onChange={this.handleUserInput} />
                 </div>
-                <button type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Log in</button>
+                <button type="submit" className="btn btn-primary" disabled={this.state.username.length === 0 && this.state.password === 0}>Log in</button>
             </form>
         )
     }

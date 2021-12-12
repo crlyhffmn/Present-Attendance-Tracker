@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class UserController {
 
@@ -28,9 +29,9 @@ public class UserController {
         return service.getUserById(id);
     }
 
-    @GetMapping("/users/{username}")
-    public User getUserByUsername(@PathVariable("username") String username) {
-        return service.getUserByUsername(username);
+    @GetMapping("/users/{email}")
+    public User getUserByEmail(@PathVariable("email") String email) {
+        return service.getUserByEmail(email);
     }
 
     @DeleteMapping("/users/{id}")

@@ -29,8 +29,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByUsername(String username) {
-        return repository.findUserByUsername(username);
+    public User getUserByEmail(String email) {
+        return repository.findUserByEmail(email);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User updateUser(long id, User updateUser) {
         User user = repository.findById(id).get();
-        user.setUsername(updateUser.getUsername());
+        user.setEmail(updateUser.getEmail());
         user.setPassword(updateUser.getPassword());
         user.setFirstName(updateUser.getFirstName());
         user.setLastName(updateUser.getLastName());
