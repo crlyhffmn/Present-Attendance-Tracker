@@ -25,3 +25,5 @@ Present is an attendance keeping application designed for use by instructors and
 3. HTML
 4. TypeScript
 5. CSS
+6. JavaScript
+7. MySQL
