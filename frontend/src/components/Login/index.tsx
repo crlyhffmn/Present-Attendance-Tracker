@@ -1,5 +1,8 @@
+import { faEnvelope, faLock, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import "../../style/Login-RegisterForm.css";
 
 function Login() {
@@ -11,13 +14,15 @@ function Login() {
     function onSubmitHandler(event: any) {
         event.preventDefault();
         console.log(user);
-        axios.post("spring.datasource.url=jdbc:mysql://localhost:3306/project2", user)
-        // .then(response =>{
-        //     save to state
-        // })
-        // .catch(err =>{
-        //     Incorrect Credentials error
-        // })
+        axios.get('http://localhost:8081/users/' + user.email)
+        .then(response => {
+            console.log(response.data);
+            //save to state
+        })
+        .catch(error => {
+            //Incorrect Credentials error
+            console.error(error);
+        })
     }
 
     function onChangeHandler(event: any) {
@@ -36,35 +41,42 @@ function Login() {
                     <div className="wrapper">
                         <form onSubmit={onSubmitHandler}>
                             <div className="form-group">
-                                <label htmlFor="">Email</label>
+                                <label htmlFor="">
+                                    <FontAwesomeIcon icon={faEnvelope} /> {' '} Email
+                                </label>
                                 <input
                                     type="text"
                                     className="form-control"
                                     name="email"
                                     value={user.email}
                                     onChange={onChangeHandler}
+                                    placeholder="example@mail.com"
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="">Password</label>
+                                <label htmlFor="">
+                                    <FontAwesomeIcon icon={faLock} /> {' '} Password
+                                </label>
                                 <input
                                     type="password"
                                     className="form-control"
                                     name="password"
                                     value={user.password}
                                     onChange={onChangeHandler}
+                                    placeholder="password"
                                 />
                             </div><br />
-                            <input
+                            <Button
                                 type="submit"
-                                value="Login"
                                 className="btn btn-block"
-                                style={{backgroundColor: "rgb(228, 111, 3)"}}
-                            />
+                                style={{ backgroundColor: "rgb(228, 111, 3)" }}
+                            >
+                               <FontAwesomeIcon icon={faSignInAlt} /> Login
+                            </Button>   
                         </form>
-                        
+
                     </div>
-                    <button className="btn"><a className="text-dark" href="/register" style={{textDecoration: "none"}}>Don't Have an Account?</a></button>
+                    <button className="btn"><a className="text-dark" href="/register" style={{ textDecoration: "none" }}>Don't Have an Account?</a></button>
                 </div>
             </div>
         </div>

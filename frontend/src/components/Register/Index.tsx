@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../style/Login-RegisterForm.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faEnvelope,
+    faLock
+} from "@fortawesome/free-solid-svg-icons";
 
 
 function Register() {
@@ -15,7 +20,8 @@ function Register() {
         event.preventDefault();
         axios.post('http://localhost:8081/users', user)
             .then(response => {
-                console.log(response.data)
+                setUser(response.data);
+                console.log(response.data);
             })
             .catch(error => {
                 console.error(error);
@@ -46,6 +52,7 @@ function Register() {
                                         name="firstName"
                                         value={user.firstName}
                                         onChange={onChangeHandler}
+                                        placeholder="first name"
                                     />
                                 </div>
                                 <div className="form-group">
@@ -56,26 +63,33 @@ function Register() {
                                         name="lastName"
                                         value={user.lastName}
                                         onChange={onChangeHandler}
+                                        placeholder="last name"
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="">Email</label>
+                                    <label htmlFor="">
+                                        <FontAwesomeIcon icon={faEnvelope} /> {' '} Email
+                                    </label>
                                     <input
-                                        type="text"
+                                        type="email"
                                         className="form-control"
                                         name="email"
                                         value={user.email}
                                         onChange={onChangeHandler}
+                                        placeholder="example@mail.com"
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="">Password</label>
+                                    <label htmlFor="">
+                                        <FontAwesomeIcon icon={faLock} /> {' '} Password
+                                    </label>
                                     <input
                                         type="password"
                                         className="form-control"
                                         name="password"
                                         value={user.password}
                                         onChange={onChangeHandler}
+                                        placeholder="password"
                                     />
                                 </div><br />
                                 <input
