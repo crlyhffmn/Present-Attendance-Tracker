@@ -52,15 +52,15 @@ const Navigation = () => {
 
   const userLinks = (
     <>
-      <Navbar variant="dark" bg="dark" expand="lg">
-        <Container fluid>
+      <Navbar variant="dark" bg="dark" expand="lg" >
+        <Container fluid >
           <Navbar.Brand style={{ marginLeft: "15px" }} href="/">
             <FontAwesomeIcon icon={faGift} />{' '}Present
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-dark-example" />
-          <Navbar.Collapse id="navbar-dark-example">
-            <Nav className="me-auto">
-              <Link to={"/"} className="nav-link">
+          <Navbar.Collapse id="navbar-dark-example" >
+            <Nav className="me-auto" >
+              <Link to={"/"} className="nav-link" style={{color: "white"}}>
                 <FontAwesomeIcon icon={faHome} /> Home
               </Link>
               {/* <NavDropdown
@@ -73,7 +73,7 @@ const Navigation = () => {
               </NavDropdown> */}
             </Nav>
             <Nav>
-              <Link to={"/login"} className="nav-link">
+              <Link to={"/login"} className="nav-link" style={{color: "white"}}>
                 <FontAwesomeIcon icon={faSignOutAlt} /> Login
               </Link>
             </Nav>
