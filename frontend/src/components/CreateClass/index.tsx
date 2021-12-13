@@ -53,7 +53,7 @@ function CreateClass() {
                                     <input
                                         type="date"
                                         className="form-control"
-                                        name="name"
+                                        name="startDate"
                                         value={meeting.startDate}
                                         onChange={onChangeHandler}
                                     />
@@ -63,7 +63,7 @@ function CreateClass() {
                                     <input
                                         type="date"
                                         className="form-control"
-                                        name="name"
+                                        name="endDate"
                                         value={meeting.endDate}
                                         onChange={onChangeHandler}
                                     />
@@ -73,7 +73,7 @@ function CreateClass() {
                                     <input
                                         type="time"
                                         className="form-control"
-                                        name="name"
+                                        name="startTime"
                                         value={meeting.startTime}
                                         onChange={onChangeHandler}
                                     />
@@ -83,8 +83,8 @@ function CreateClass() {
                                     <input
                                         type="time"
                                         className="form-control"
-                                        name="name"
-                                        value={meeting.startTime}
+                                        name="endTime"
+                                        value={meeting.endTime}
                                         onChange={onChangeHandler}
                                     />
                                 </div>

@@ -63,14 +63,14 @@ const Navigation = () => {
               <Link to={"/"} className="nav-link">
                 <FontAwesomeIcon icon={faHome} /> Home
               </Link>
-              <NavDropdown
+              {/* <NavDropdown
                 id="nav-dropdown-dark-example"
                 title="Class Options"
                 menuVariant="dark"
               >
                 <NavDropdown.Item href="/create-class">Create a Class</NavDropdown.Item>
                 <NavDropdown.Item href="/">Join a Class</NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
             </Nav>
             <Nav>
               <Link to={"/login"} className="nav-link">

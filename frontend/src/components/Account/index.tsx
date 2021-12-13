@@ -21,9 +21,10 @@ function Account() {
 
     return (
         <div className="container">
-            <br />
+            <br/>
             <div className="row">
                 <div className="col-sm-7">
+                    <h3 className="text-center">Your Enrolled Classes</h3>
                     {
                         courses.map(item => <Classes data={item} />)
                     }
@@ -32,6 +33,7 @@ function Account() {
                     <h3>Welcome {name}!</h3>
                     <Button
                         className="btn btn-block"
+                        size="lg"
                         style={{ backgroundColor: "rgb(228, 111, 3)" }}
                     >
                         <a className="text-dark" href="/create-class" style={{ textDecoration: "none" }}>Create A Class</a>
@@ -39,7 +41,8 @@ function Account() {
                     <br /><br />
                     <Button
                         className="btn btn-block"
-                        style={{ backgroundColor: "rgb(228, 111, 3)" }}
+                        size="lg"
+                        style={{ backgroundColor: "rgb(228, 111, 3)"}}
                     >
                         <a className="text-dark" href="/" style={{ textDecoration: "none" }}>Register For A Class</a>
                     </Button>
