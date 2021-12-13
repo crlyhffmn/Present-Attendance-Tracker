@@ -1,5 +1,5 @@
 import "../../style/NavBar.css"
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,7 +9,6 @@ import {
   faHome,
   faGift,
 } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
 
 const Navigation = () => {
 
@@ -63,14 +62,6 @@ const Navigation = () => {
               <Link to={"/"} className="nav-link" style={{color: "white"}}>
                 <FontAwesomeIcon icon={faHome} /> Home
               </Link>
-              {/* <NavDropdown
-                id="nav-dropdown-dark-example"
-                title="Class Options"
-                menuVariant="dark"
-              >
-                <NavDropdown.Item href="/create-class">Create a Class</NavDropdown.Item>
-                <NavDropdown.Item href="/">Join a Class</NavDropdown.Item>
-              </NavDropdown> */}
             </Nav>
             <Nav>
               <Link onClick={logout} className="nav-link" style={{ color: "white" }} to={""}>

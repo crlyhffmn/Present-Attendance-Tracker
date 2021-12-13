@@ -19,12 +19,12 @@ function Login() {
         credentialError: ""
     })
 
-    function onSubmitHandler(event: any) {
+    function onSubmitHandler(event : any) {
         event.preventDefault();
         axios.get('http://localhost:8081/users/email/' + user.email)
             .then(response => {
                 console.log(response.data);
-                if (response.data.password == user.password) {
+                if (response.data.password === user.password) {
                     localStorage.setItem('currentUserFirstName', response.data.firstName);
                     localStorage.setItem('currentUserId', response.data.id);
                     navigate('/my-account')
@@ -35,7 +35,6 @@ function Login() {
                     })
                     console.log(response.data.password + " " + user.password)
                 }
-                //save to state
             })
             .catch(error => {
                 setError({
