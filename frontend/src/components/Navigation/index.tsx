@@ -74,7 +74,7 @@ const Navigation = () => {
             </Nav>
             <Nav>
               <Link to={"/login"} className="nav-link">
-                <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+                <FontAwesomeIcon icon={faSignOutAlt} /> Login
               </Link>
             </Nav>
 

@@ -17,13 +17,12 @@ function Login() {
 
     function onSubmitHandler(event: any) {
         event.preventDefault();
-        console.log(user);
         axios.get('http://localhost:8081/users/email/' + user.email)
         .then(response => {
             console.log(response.data);
-            localStorage.setItem('currentUser', response.data);
-            setUser(response.data);
-            navigate('/')
+            localStorage.setItem('currentUserFirstName', response.data.firstName);
+            localStorage.setItem('currentUserId', response.data.id);
+            navigate('/my-account')
             //save to state
         })
         .catch(error => {
