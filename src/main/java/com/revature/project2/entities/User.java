@@ -1,9 +1,7 @@
 package com.revature.project2.entities;
 
-import com.revature.project2.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 

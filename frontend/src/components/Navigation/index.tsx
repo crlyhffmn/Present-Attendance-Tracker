@@ -8,6 +8,7 @@ import {
   faSignOutAlt,
   faHome,
   faGift,
+  faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Navigation = () => {
@@ -59,11 +60,14 @@ const Navigation = () => {
           <Navbar.Toggle aria-controls="navbar-dark-example" />
           <Navbar.Collapse id="navbar-dark-example" >
             <Nav className="me-auto" >
-              <Link to={"/"} className="nav-link" style={{color: "white"}}>
+              <Link to={"/"} className="nav-link" style={{ color: "white" }}>
                 <FontAwesomeIcon icon={faHome} /> Home
               </Link>
             </Nav>
             <Nav>
+              <Link to={"/my-account"} className="nav-link" style={{ color: "white" }} >
+                <FontAwesomeIcon icon={faUserCircle} /> My Account
+              </Link>
               <Link onClick={logout} className="nav-link" style={{ color: "white" }} to={""}>
                 <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
               </Link>

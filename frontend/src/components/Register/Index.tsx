@@ -9,7 +9,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 
-const Register = (props : any) => {
+const Register = (props: any) => {
 
     const navigate = useNavigate();
 
@@ -25,9 +25,10 @@ const Register = (props : any) => {
         axios.post('http://localhost:8081/users', user)
             .then(response => {
                 setUser(response.data);
-                localStorage.setItem('currentUser', response.data);
+                localStorage.setItem('currentUserFirstName', response.data.firstName);
+                localStorage.setItem('currentUserId', response.data.id);
                 console.log(response.data);
-                navigate('/');
+                navigate('/my-account');
             })
             .catch(error => {
                 console.error(error);

@@ -1,25 +1,41 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 function CreateClass() {
+
+    // const [user, setUser] = useState();
+    // useEffect(() => {
+    //     axios.get('http://localhost:8081/users/' + Number(getCurrentUserId()))
+    //     .then((response) => {
+    //         console.log(response.data)
+    //         setUser(response.data);
+    //     })
+    //     .catch(error =>{
+    //         console.error(error);
+    //     })
+    // }, []);
+
     const [meeting, setMeeting] = useState({
-        name: '',
+        courseName: '',
         startDate: '',
         endDate: '',
         startTime: '',
         endTime: ''
+        //instructorId: user
         // days: [] may need to implement this later
     });
 
     function onSubmitHandler(event: any) {
         event.preventDefault();
         console.log(meeting);
-        // axios.post("Put url to servlet here", meeting)
-        // .then(response =>{
-        //     save to state
-        // })
-        // .catch(err =>{
-        //     Couldn't add to db
-        // })
+        axios.post('http://localhost:8081/courses', meeting)
+        .then(response =>{
+            setMeeting(response.data);
+            console.log(response.data);
+        })
+        .catch(error =>{
+            console.log(error);
+        })
     }
 
     function onChangeHandler(event: any) {
@@ -28,6 +44,15 @@ function CreateClass() {
             ...meeting,
             [event.target.name]: event.target.value,
         });
+    }
+
+    function getCurrentUserId() {
+        let currentId = localStorage.getItem('currentUserId');
+        if(currentId != null) {
+            return currentId;
+        } else {
+            return 0;
+        }
     }
 
     return (
@@ -43,8 +68,8 @@ function CreateClass() {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        name="name"
-                                        value={meeting.name}
+                                        name="courseName"
+                                        value={meeting.courseName}
                                         onChange={onChangeHandler}
                                     />
                                 </div>

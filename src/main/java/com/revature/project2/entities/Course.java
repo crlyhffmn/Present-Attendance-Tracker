@@ -1,7 +1,7 @@
 package com.revature.project2.entities;
 
-import com.revature.project2.utilities.Days;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
@@ -17,15 +17,19 @@ public class Course {
     private String courseName;
 
     @ManyToOne(cascade = CascadeType.ALL, targetEntity = User.class)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User instructorId;
 
     @ManyToMany(mappedBy = "courses", cascade = CascadeType.ALL)
-    private List<User> participants= new ArrayList<>();
-    //private List<Days> days;
+    private List<User> participants = new ArrayList<>();
+    // private List<Days> days;
     private Date startDate;
     private Date endDate;
+    @JsonFormat(pattern = "HH:mm")
+    @JsonDeserialize(using = SqlTimeDeserializer.class)
     private Time startTime;
+    @JsonFormat(pattern = "HH:mm")
+    @JsonDeserialize(using = SqlTimeDeserializer.class)
     private Time endTime;
 
     public List<User> getParticipants() {
@@ -36,13 +40,13 @@ public class Course {
         this.participants = participants;
     }
 
-//    public List<Days> getDays() {
-//        return days;
-//    }
-//
-//    public void setDays(List<Days> days) {
-//        this.days = days;
-//    }
+    // public List<Days> getDays() {
+    // return days;
+    // }
+    //
+    // public void setDays(List<Days> days) {
+    // this.days = days;
+    // }
 
     public long getId() {
         return id;
@@ -67,7 +71,7 @@ public class Course {
     public void setInstructorId(User instructorId) {
         this.instructorId = instructorId;
     }
-    
+
     public Date getStartDate() {
         return startDate;
     }
@@ -106,8 +110,8 @@ public class Course {
                 "id=" + id +
                 ", courseName='" + courseName + '\'' +
                 ", instructorId=" + instructorId +
-//                ", participants=" + participants +
-//                ", days=" + days +
+                // ", participants=" + participants +
+                // ", days=" + days +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", startTime=" + startTime +
