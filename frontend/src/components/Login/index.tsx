@@ -15,20 +15,35 @@ function Login() {
         password: "",
     });
 
+    const [error, setError] = useState({
+        credentialError: ""
+    })
+
     function onSubmitHandler(event: any) {
         event.preventDefault();
         axios.get('http://localhost:8081/users/email/' + user.email)
-        .then(response => {
-            console.log(response.data);
-            localStorage.setItem('currentUserFirstName', response.data.firstName);
-            localStorage.setItem('currentUserId', response.data.id);
-            navigate('/my-account')
-            //save to state
-        })
-        .catch(error => {
-            //Incorrect Credentials error
-            console.error(error);
-        })
+            .then(response => {
+                console.log(response.data);
+                if (response.data.password == user.password) {
+                    localStorage.setItem('currentUserFirstName', response.data.firstName);
+                    localStorage.setItem('currentUserId', response.data.id);
+                    navigate('/my-account')
+                }else{
+                    setError({
+                        ...error,
+                        credentialError: "Username or Password Incorrect"
+                    })
+                    console.log(response.data.password + " " + user.password)
+                }
+                //save to state
+            })
+            .catch(error => {
+                setError({
+                    ...error,
+                    credentialError: "Username or Password Incorrect"
+                })
+                console.error(error);
+            })
     }
 
     function onChangeHandler(event: any) {
@@ -71,14 +86,16 @@ function Login() {
                                     onChange={onChangeHandler}
                                     placeholder="password"
                                 />
-                            </div><br />
+                            </div>
+                            <small className="text-danger">{error.credentialError}</small>
+                            <br />
                             <Button
                                 type="submit"
                                 className="btn btn-block"
                                 style={{ backgroundColor: "rgb(228, 111, 3)" }}
                             >
-                               <FontAwesomeIcon icon={faSignInAlt} /> Login
-                            </Button>   
+                                <FontAwesomeIcon icon={faSignInAlt} /> Login
+                            </Button>
                         </form>
 
                     </div>
