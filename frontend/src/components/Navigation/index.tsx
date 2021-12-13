@@ -73,8 +73,8 @@ const Navigation = () => {
               </NavDropdown> */}
             </Nav>
             <Nav>
-              <Link to={"/login"} className="nav-link" style={{color: "white"}}>
-                <FontAwesomeIcon icon={faSignOutAlt} /> Login
+              <Link onClick={logout} className="nav-link" style={{ color: "white" }} to={""}>
+                <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
               </Link>
             </Nav>
 
