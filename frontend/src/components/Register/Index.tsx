@@ -27,6 +27,7 @@ const Register = (props: any) => {
                 setUser(response.data);
                 localStorage.setItem('currentUserFirstName', response.data.firstName);
                 localStorage.setItem('currentUserId', response.data.id);
+                localStorage.setItem('currentUserEmail', response.data.email);
                 console.log(response.data);
                 navigate('/my-account');
             })

@@ -3,39 +3,29 @@ import React, { useEffect, useState } from "react";
 
 function CreateClass() {
 
-    // const [user, setUser] = useState();
-    // useEffect(() => {
-    //     axios.get('http://localhost:8081/users/' + Number(getCurrentUserId()))
-    //     .then((response) => {
-    //         console.log(response.data)
-    //         setUser(response.data);
-    //     })
-    //     .catch(error =>{
-    //         console.error(error);
-    //     })
-    // }, []);
-
     const [meeting, setMeeting] = useState({
         courseName: '',
         startDate: '',
         endDate: '',
         startTime: '',
-        endTime: ''
-        //instructorId: user
+        endTime: '',
+        instructorId: ''
         // days: [] may need to implement this later
     });
 
     function onSubmitHandler(event: any) {
         event.preventDefault();
         console.log(meeting);
+        setCurrentUser();
+        console.log(meeting);
         axios.post('http://localhost:8081/courses', meeting)
-        .then(response =>{
-            setMeeting(response.data);
-            console.log(response.data);
-        })
-        .catch(error =>{
-            console.log(error);
-        })
+            .then(response => {
+                setMeeting(response.data);
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     function onChangeHandler(event: any) {
@@ -46,13 +36,18 @@ function CreateClass() {
         });
     }
 
-    function getCurrentUserId() {
-        let currentId = localStorage.getItem('currentUserId');
-        if(currentId != null) {
-            return currentId;
-        } else {
-            return 0;
-        }
+    function setCurrentUser() {
+        let currentUser = null;
+        axios.get('http://localhost:8081/users/email/' + localStorage.getItem('currentUserEmail'))
+        .then(response => {
+            //console.log(response)
+            currentUser = response.data;
+            setMeeting({...meeting, instructorId : currentUser});
+            console.log(meeting);
+        })
+        .catch(error => {
+            console.error("Set current user: " + error);
+        })
     }
 
     return (
@@ -114,34 +109,34 @@ function CreateClass() {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label>Days of the Week</label><br/>
+                                    <label>Days of the Week</label><br />
                                     <div className="form-check form-check-inline">
                                         <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Sunday" />
-                                        <label className ="form-check-label">Sunday</label>
+                                        <label className="form-check-label">Sunday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
                                         <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="Monday" />
-                                        <label className ="form-check-label">Monday</label>
+                                        <label className="form-check-label">Monday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
                                         <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Tuesday" />
-                                        <label className ="form-check-label">Tuesday</label>
+                                        <label className="form-check-label">Tuesday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
                                         <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Wednesday" />
-                                        <label className ="form-check-label">Wednesday</label>
+                                        <label className="form-check-label">Wednesday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
                                         <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Thursday" />
-                                        <label className ="form-check-label">Thursday</label>
+                                        <label className="form-check-label">Thursday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
                                         <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Friday" />
-                                        <label className ="form-check-label">Friday</label>
+                                        <label className="form-check-label">Friday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
                                         <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Saturday" />
-                                        <label className ="form-check-label">Saturday</label>
+                                        <label className="form-check-label">Saturday</label>
                                     </div>
                                 </div>
                                 <br />

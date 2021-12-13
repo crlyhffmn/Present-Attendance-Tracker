@@ -16,7 +16,7 @@ public class Course {
     private long id;
     private String courseName;
 
-    @ManyToOne(cascade = CascadeType.ALL, targetEntity = User.class)
+    @ManyToOne(cascade = CascadeType.MERGE, targetEntity = User.class)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User instructorId;
 

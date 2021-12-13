@@ -27,6 +27,7 @@ function Login() {
                 if (response.data.password === user.password) {
                     localStorage.setItem('currentUserFirstName', response.data.firstName);
                     localStorage.setItem('currentUserId', response.data.id);
+                    localStorage.setItem('currentUserEmail', response.data.email);
                     navigate('/my-account')
                 }else{
                     setError({
