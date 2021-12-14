@@ -14,11 +14,11 @@ import {
 const Navigation = () => {
 
   const navigate = useNavigate();
-  const isLoggedIn = localStorage.length > 0;
+  const isLoggedIn = localStorage.getItem('currentUserFirstName');
 
   const logout = () => {
+    console.log("LogOut");
     localStorage.clear();
-    navigate('/')
   };
 
   const guestLinks = (
@@ -43,7 +43,6 @@ const Navigation = () => {
                 <FontAwesomeIcon icon={faSignInAlt} /> Login
               </Link>
             </Nav>
-
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -68,7 +67,7 @@ const Navigation = () => {
               <Link to={"/my-account"} className="nav-link" style={{ color: "white" }} >
                 <FontAwesomeIcon icon={faUserCircle} /> My Account
               </Link>
-              <Link onClick={logout} className="nav-link" style={{ color: "white" }} to={""}>
+              <Link onClick={logout} className="nav-link" style={{ color: "white" }} to={"/"}>
                 <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
               </Link>
             </Nav>
