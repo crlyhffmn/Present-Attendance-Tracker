@@ -40,7 +40,6 @@ function CreateClass() {
         let currentUser = null;
         axios.get('http://localhost:8081/users/email/' + localStorage.getItem('currentUserEmail'))
         .then(response => {
-            //console.log(response)
             currentUser = response.data;
             setMeeting({...meeting, instructorId : currentUser});
             console.log(meeting);
