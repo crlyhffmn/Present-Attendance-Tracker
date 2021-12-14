@@ -15,6 +15,7 @@ public class Course {
     @Column(name = "course_id")
     private long id;
     private String courseName;
+    private String description;
 
     @ManyToOne(cascade = CascadeType.MERGE, targetEntity = User.class)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
@@ -51,6 +52,15 @@ public class Course {
     // public void setDays(List<Days> days) {
     // this.days = days;
     // }
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public long getId() {
         return id;
@@ -120,6 +130,7 @@ public class Course {
                 ", endDate=" + endDate +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
+                ", description=" + description +
                 '}';
     }
 }

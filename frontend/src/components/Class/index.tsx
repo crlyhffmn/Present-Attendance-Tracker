@@ -18,7 +18,8 @@ function Class(props: any) {
         endTime: "",
         participants: "",
         startDate: "",
-        startTime: ""
+        startTime: "",
+        description: ""
     })
 
     const [instructor, setInstructor] = useState({
@@ -44,7 +45,17 @@ function Class(props: any) {
             <h1 style={{ textAlign: "center" }}>{course.courseName}</h1>
             <div className="row">
                 <div className="col-sm" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>
-
+                    <div className="row"><h4>{course.description}</h4></div><br />
+                    <div className="row">
+                        <div className="col-sm">
+                            <h5>Start Date: {course.startDate}</h5>
+                            <h5>End Date: {course.endDate}</h5>
+                        </div>
+                        <div className="col-sm">
+                            <h5>Start Time: {course.startTime}</h5>
+                            <h5>End Time: {course.endTime}</h5>
+                        </div>
+                    </div>
                 </div>
                 <div className="col-sm-3 ms-auto text-center" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>
                     <h2>Instructor:</h2>

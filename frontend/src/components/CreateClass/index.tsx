@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CreateClass() {
 
+    const navigate = useNavigate();
     useEffect(() => {
         axios.get('http://localhost:8081/users/email/' + localStorage.getItem('currentUserEmail'))
         .then(response => {
@@ -20,6 +22,7 @@ function CreateClass() {
         startTime: '',
         endTime: '',
         instructorId: "",
+        description: "",
         // days: [] may need to implement this later
     });
 
@@ -30,6 +33,7 @@ function CreateClass() {
             .then(response => {
                 setMeeting(response.data);
                 console.log(response.data);
+                navigate('/my-account')
             })
             .catch(error => {
                 console.log(error);
@@ -59,6 +63,16 @@ function CreateClass() {
                                         className="form-control"
                                         name="courseName"
                                         value={meeting.courseName}
+                                        onChange={onChangeHandler}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="">Description</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="description"
+                                        value={meeting.description}
                                         onChange={onChangeHandler}
                                     />
                                 </div>
