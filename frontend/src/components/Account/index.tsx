@@ -7,6 +7,10 @@ import Classes from "./Classes";
 function Account() {
     var name = localStorage.getItem('currentUserFirstName')
     const navigate = useNavigate();
+
+    if(name == null || name.length == 0){
+        navigate("/")
+    }
     const [courses, setCourses] = useState([]);
     useEffect(() => {
         {

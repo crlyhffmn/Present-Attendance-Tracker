@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="89f7e678-e43f-4080-ae97-f6a6ab74d023" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Class/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Class/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CreateClass/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CreateClass/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/project2/entities/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/project2/entities/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Account/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Account/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Register/Index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Register/Index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

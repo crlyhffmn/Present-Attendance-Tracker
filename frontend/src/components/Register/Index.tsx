@@ -6,6 +6,7 @@ import {
     faEnvelope,
     faLock
 } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -100,12 +101,13 @@ const Register = (props: any) => {
                                         placeholder="password"
                                     />
                                 </div><br />
-                                <input
+                                <Button
                                     type="submit"
-                                    value="Register"
                                     className="btn btn-block"
                                     style={{ backgroundColor: "rgb(228, 111, 3)" }}
-                                />
+                                >
+                                Register
+                                </Button>
                             </form>
                         </div>
                         <button className="btn"><a className="text-dark" href="/login" style={{ textDecoration: "none" }}>Already Have an Account?</a></button>
