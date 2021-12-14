@@ -1,8 +1,19 @@
 import axios from "axios";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button, Form, FormControl, InputGroup } from "react-bootstrap";
 
 const RegisterForClass = () => {
+
+    const [user, setUser] = useState();
+    useEffect(() => {
+        axios.get('http://localhost:8081/users/email/' + localStorage.getItem('currentUserEmail'))
+        .then(response => {
+            setUser(response.data);
+        })
+        .catch(error => {
+            console.error("getCurrentUser() in RegisterForClass: " + error);
+        })
+    },[]);
 
     const [course, setCourse] = useState({
         course_id: "",
@@ -11,6 +22,7 @@ const RegisterForClass = () => {
 
     function onChangeHandler(event: any) {
         console.log(event.target.name);
+        console.log(event.target.value);
         setCourse({
             ...course,
             [event.target.name]: event.target.value,
@@ -19,26 +31,13 @@ const RegisterForClass = () => {
 
     function onSubmitHandler(event : any) {
         event.preventDefault();
-        //Get from axios
-        let currentUser = getCurrentUser();
-        axios.post('http://localhost:8081/courses/addParticipant/' + course.course_id, currentUser)
+        console.log(course.course_id);
+        console.log(user);
+        axios.put("http://localhost:8081/courses/addParticipant/" + course.course_id, user)
         .then(response => {
             console.log(response.data);
         })
-        .catch(error => console.error(error))
-    }
-
-    function getCurrentUser() {
-        let currentUser = null;
-        axios.get('http://localhost:8081/users/email/' + localStorage.getItem('currentUserEmail'))
-        .then(response => {
-            currentUser = response.data;
-            console.log(currentUser);
-        })
-        .catch(error => {
-            console.error("getCurrentUser() in RegisterForClass: " + error);
-        })
-        return currentUser;
+        .catch(error => console.error("Error in submitHandler of RegisterForClass: " + error))
     }
 
 
@@ -51,6 +50,7 @@ const RegisterForClass = () => {
                 <FormControl
                     placeholder="ID"
                     onChange={onChangeHandler}
+                    name="course_id"
                 />
             </InputGroup>
             <Button type="submit">Submit</Button>

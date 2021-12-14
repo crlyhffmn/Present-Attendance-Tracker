@@ -20,7 +20,7 @@ public class CourseController {
     }
 
     @GetMapping("/courses/{id}")
-    public Course getCourseById(@PathVariable("id") int id){
+    public Course getCourseById(@PathVariable("id") long id){
         return service.getCourseById(id);
     }
 
@@ -30,19 +30,20 @@ public class CourseController {
     }
 
     @PutMapping("/courses/{id}")
-    public String updateCourse(@PathVariable("id") int id, @RequestBody Course updateCourse){
+    public String updateCourse(@PathVariable("id") long id, @RequestBody Course updateCourse){
         service.updateCourse(id, updateCourse);
         return "record updated successfully";
     }
 
     @PutMapping("/courses/addParticipant/{id}")
-    public String addParticipant(@PathVariable("id") int id, @RequestBody User participant){
+    public String addParticipant(@PathVariable("id") long id, @RequestBody User participant){
+        System.out.println("adding participant w/ id: " + id);
         service.addParticpant(id, participant);
         return "participant added successfully";
     }
 
     @DeleteMapping("/courses/{id}")
-    public String deleteCourse(@PathVariable("id") int id){
+    public String deleteCourse(@PathVariable("id") long id){
         service.deleteCourse(id);
         return "record deleted successfully";
     }
