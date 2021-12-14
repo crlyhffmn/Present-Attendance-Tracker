@@ -38,6 +38,12 @@ const RegisterForClass = () => {
             console.log(response.data);
         })
         .catch(error => console.error("Error in submitHandler of RegisterForClass: " + error))
+
+        axios.get("http://localhost:8081/courses")
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => console.error("Error in submitHandler part 2 of RegisterForClass: " + error))
     }
 
 

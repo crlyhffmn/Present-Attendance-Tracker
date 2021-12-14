@@ -3,6 +3,8 @@ package com.revature.project2.services;
 import com.revature.project2.entities.Course;
 import com.revature.project2.entities.User;
 import com.revature.project2.repository.CourseRepository;
+
+import org.hibernate.annotations.SourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,10 +51,8 @@ public class CourseServiceImpl implements CourseService{
     @Override
     public Course addParticpant(long id, User participant) {
         Course course = repository.findById(id).get();
-        List<User> updatedParticipants = course.getParticipants();
-        updatedParticipants.add(participant);
-        Course updatedCourse = course;
-        updatedCourse.setParticipants(updatedParticipants);
-        return repository.save(updatedCourse);
+        course.addParticipant(participant);
+        System.out.println(course.getParticipants());
+        return repository.save(course);
     }
 }
