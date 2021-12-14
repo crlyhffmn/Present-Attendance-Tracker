@@ -18,7 +18,7 @@ const Navigation = () => {
 
   const logout = () => {
     localStorage.clear();
-    navigate('/')
+    //navigate('/');
   };
 
   const guestLinks = (
@@ -68,7 +68,7 @@ const Navigation = () => {
               <Link to={"/my-account"} className="nav-link" style={{ color: "white" }} >
                 <FontAwesomeIcon icon={faUserCircle} /> My Account
               </Link>
-              <Link onClick={logout} className="nav-link" style={{ color: "white" }} to={""}>
+              <Link onClick={logout} className="nav-link" style={{ color: "white" }} to={"/"}>
                 <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
               </Link>
             </Nav>

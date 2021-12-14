@@ -20,17 +20,25 @@ const RegisterForClass = () => {
     function onSubmitHandler(event : any) {
         event.preventDefault();
         //Get from axios
+        let currentUser = getCurrentUser();
+        axios.post('http://localhost:8081/courses/addParticipant/' + course.course_id, currentUser)
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => console.error(error))
     }
 
-    function setCurrentUser() {
+    function getCurrentUser() {
         let currentUser = null;
         axios.get('http://localhost:8081/users/email/' + localStorage.getItem('currentUserEmail'))
         .then(response => {
-            
+            currentUser = response.data;
+            console.log(currentUser);
         })
         .catch(error => {
-            console.error("Set current user: " + error);
+            console.error("getCurrentUser() in RegisterForClass: " + error);
         })
+        return currentUser;
     }
 
 

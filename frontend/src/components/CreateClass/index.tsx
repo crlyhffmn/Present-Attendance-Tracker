@@ -42,7 +42,7 @@ function CreateClass() {
         .then(response => {
             currentUser = response.data;
             setMeeting({...meeting, instructorId : currentUser});
-            console.log(meeting);
+            console.log("Setting current user ..." + meeting);
         })
         .catch(error => {
             console.error("Set current user: " + error);

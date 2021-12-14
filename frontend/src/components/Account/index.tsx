@@ -9,7 +9,7 @@ function Account() {
     const [courses, setCourses] = useState([]);
     useEffect(() => {
         {
-            //console.log("Here")
+            console.log("Here")
             axios.get('http://localhost:8081/courses')
             .then(response => {
                 setCourses(response.data)
