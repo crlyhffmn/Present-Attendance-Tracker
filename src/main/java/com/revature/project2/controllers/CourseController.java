@@ -1,6 +1,7 @@
 package com.revature.project2.controllers;
 
 import com.revature.project2.entities.Course;
+import com.revature.project2.entities.User;
 import com.revature.project2.services.CourseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,12 @@ public class CourseController {
     public String updateCourse(@PathVariable("id") int id, @RequestBody Course updateCourse){
         service.updateCourse(id, updateCourse);
         return "record updated successfully";
+    }
+
+    @PutMapping("/courses/addParticipant/{id}")
+    public String addParticipant(@PathVariable("id") int id, @RequestBody User participant){
+        service.addParticpant(id, participant);
+        return "participant added successfully";
     }
 
     @DeleteMapping("/courses/{id}")

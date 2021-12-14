@@ -9,7 +9,7 @@ function Account() {
     const [courses, setCourses] = useState([]);
     useEffect(() => {
         {
-            console.log("Here")
+            //console.log("Here")
             axios.get('http://localhost:8081/courses')
             .then(response => {
                 setCourses(response.data)
@@ -44,7 +44,7 @@ function Account() {
                         size="lg"
                         style={{ backgroundColor: "rgb(228, 111, 3)"}}
                     >
-                        <a className="text-dark" href="/" style={{ textDecoration: "none" }}>Register For A Class</a>
+                        <a className="text-dark" href="/course-reg" style={{ textDecoration: "none" }}>Register For A Class</a>
                     </Button>
                 </div>
             </div>
