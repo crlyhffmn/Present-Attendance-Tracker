@@ -3,6 +3,16 @@ import React, { useEffect, useState } from "react";
 
 function CreateClass() {
 
+    useEffect(() => {
+        axios.get('http://localhost:8081/users/email/' + localStorage.getItem('currentUserEmail'))
+        .then(response => {
+            setMeeting({...meeting, instructorId : response.data});
+        })
+        .catch(error => {
+            console.error("getCurrentUser() in CreateClass: " + error);
+        })
+    },[]);
+
     const [meeting, setMeeting] = useState({
         courseName: '',
         startDate: '',
@@ -15,8 +25,6 @@ function CreateClass() {
 
     function onSubmitHandler(event: any) {
         event.preventDefault();
-        console.log(meeting);
-        setCurrentUser();
         console.log(meeting);
         axios.post('http://localhost:8081/courses', meeting)
             .then(response => {
@@ -34,19 +42,6 @@ function CreateClass() {
             ...meeting,
             [event.target.name]: event.target.value,
         });
-    }
-
-    function setCurrentUser() {
-        let currentUser = null;
-        axios.get('http://localhost:8081/users/email/' + localStorage.getItem('currentUserEmail'))
-        .then(response => {
-            currentUser = response.data;
-            setMeeting({...meeting, instructorId : currentUser});
-            console.log(meeting);
-        })
-        .catch(error => {
-            console.error("Set current user: " + error);
-        })
     }
 
     return (

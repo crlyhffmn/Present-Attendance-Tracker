@@ -19,6 +19,7 @@ const Navigation = () => {
   const logout = () => {
     console.log("LogOut");
     localStorage.clear();
+    //navigate('/');
   };
 
   const guestLinks = (

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import AccountPage from "./pages/AccountPage";
+import ClassRegPage from "./pages/ClassRegPage";
 import CreateClassPage from "./pages/CreateClassPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -17,6 +18,7 @@ function App() {
         <Route path='/create-class' element={<CreateClassPage />} />
         <Route path='/my-account' element={<AccountPage />} />
         <Route path='/class' element={<ClassPage />} />
+        <Route path='/course-reg' element={<ClassRegPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -30,7 +30,7 @@ function Class(props: any) {
 
     useEffect(() => {
         {
-            axios.get('http://localhost:8081/courses/' + id)
+            axios.get('http://localhost:8081/courses/id/' + id)
                 .then(response => {
                     setCourse(response.data)
                     setInstructor(response.data.instructorId);

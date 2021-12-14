@@ -40,6 +40,10 @@ public class Course {
         this.participants = participants;
     }
 
+    public void addParticipant(User participant) {
+        this.participants.add(participant);
+    }
+
     // public List<Days> getDays() {
     // return days;
     // }
