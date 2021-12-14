@@ -1,7 +1,10 @@
 package com.revature.project2.controllers;
 
 import com.revature.project2.entities.Course;
+import com.revature.project2.entities.CourseParticipants;
 import com.revature.project2.entities.User;
+import com.revature.project2.repository.CourseParticipantsRepository;
+import com.revature.project2.services.CourseParticipantsServiceImpl;
 import com.revature.project2.services.CourseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +16,8 @@ import java.util.List;
 public class CourseController {
     @Autowired
     private CourseServiceImpl service;
+
+    @Autowired CourseParticipantsServiceImpl participantsService;
 
     @GetMapping("/courses")
     public List<Course> getCourses(){
@@ -38,7 +43,11 @@ public class CourseController {
     @PutMapping("/courses/addParticipant/{id}")
     public String addParticipant(@PathVariable("id") long id, @RequestBody User participant){
         System.out.println("adding participant w/ id: " + id);
-        service.addParticpant(id, participant);
+        //service.addParticpant(id, participant);
+        CourseParticipants cp = new CourseParticipants();
+        cp.setCourse_id(service.getCourseById(id));
+        cp.setParticipant_id(participant);
+        participantsService.addCourseParticipant(cp);
         return "participant added successfully";
     }
 
