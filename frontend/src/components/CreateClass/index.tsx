@@ -9,7 +9,7 @@ function CreateClass() {
         endDate: '',
         startTime: '',
         endTime: '',
-        instructorId: ''
+        instructorId: "",
         // days: [] may need to implement this later
     });
 

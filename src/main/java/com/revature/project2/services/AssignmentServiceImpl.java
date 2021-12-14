@@ -30,7 +30,7 @@ public class AssignmentServiceImpl implements AssignmentService {
 
     @Override
     public Assignment getAssignmentById(long id) {
-        return repository.getById(id);
+        return repository.findById(id).get();
     }
 
     @Override

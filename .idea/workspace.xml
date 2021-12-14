@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="89f7e678-e43f-4080-ae97-f6a6ab74d023" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home/Jumbotron.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home/Jumbotron.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navigation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navigation/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/project2/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/project2/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Account/Classes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Account/Classes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Account/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Account/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/project2/services/AssignmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/project2/services/AssignmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/project2/services/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/project2/services/CourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/project2/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/project2/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/project2/services/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/project2/services/UserServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -26,13 +26,13 @@ function Account() {
             <div className="container">
                 <br />
                 <div className="row">
-                    <div className="col-sm-7">
+                    <div className="col-sm-7" style={{border: "solid", borderColor: "gray", background: "lightgray"}}>
                         <h3 className="text-center">Your Enrolled Classes</h3>
                         {
                             courses.map(item => <Classes data={item} />)
                         }
                     </div>
-                    <div className="col-sm-5 ms-auto text-center">
+                    <div className="col-sm-5 ms-auto text-center" style={{border: "solid", borderColor: "gray", background: "lightgray"}}>
                         <h3>Welcome {name}!</h3>
                         <Button
                             className="btn btn-block"
