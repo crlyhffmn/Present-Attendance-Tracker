@@ -7,13 +7,13 @@ function CreateClass() {
     const navigate = useNavigate();
     useEffect(() => {
         axios.get('http://localhost:8081/users/email/' + localStorage.getItem('currentUserEmail'))
-        .then(response => {
-            setMeeting({...meeting, instructorId : response.data});
-        })
-        .catch(error => {
-            console.error("getCurrentUser() in CreateClass: " + error);
-        })
-    },[]);
+            .then(response => {
+                setMeeting({ ...meeting, instructorId: response.data });
+            })
+            .catch(error => {
+                console.error("getCurrentUser() in CreateClass: " + error);
+            })
+    }, []);
 
     const [meeting, setMeeting] = useState({
         courseName: '',
@@ -23,7 +23,13 @@ function CreateClass() {
         endTime: '',
         instructorId: "",
         description: "",
-        // days: [] may need to implement this later
+        sunday: "false",
+        monday: "false",
+        tuesday: "false",
+        wednesday: "false",
+        thursday: "false",
+        friday: "false",
+        saturday: "false"
     });
 
     function onSubmitHandler(event: any) {
@@ -46,6 +52,20 @@ function CreateClass() {
             ...meeting,
             [event.target.name]: event.target.value,
         });
+    }
+
+    function Toggle(event: any) {
+        if (event.target.value === "false") {
+            setMeeting({
+                ...meeting,
+                [event.target.name]: "true",
+            });
+        } else {
+            setMeeting({
+                ...meeting,
+                [event.target.name]: "false",
+            });
+        }
     }
 
     return (
@@ -119,31 +139,31 @@ function CreateClass() {
                                 <div className="form-group">
                                     <label>Days of the Week</label><br />
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="Sunday" />
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" name="sunday" onClick={Toggle} value={meeting.sunday}/>
                                         <label className="form-check-label">Sunday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="Monday" />
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox2" name="monday" onClick={Toggle} value={meeting.monday} />
                                         <label className="form-check-label">Monday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Tuesday" />
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" name="tuesday" onClick={Toggle} value={meeting.tuesday} />
                                         <label className="form-check-label">Tuesday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Wednesday" />
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" name="wednesday" onClick={Toggle} value={meeting.wednesday}/>
                                         <label className="form-check-label">Wednesday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Thursday" />
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" name="thursday" onClick={Toggle} value={meeting.thursday}/>
                                         <label className="form-check-label">Thursday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Friday" />
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" name="friday" onClick={Toggle} value={meeting.friday} />
                                         <label className="form-check-label">Friday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value="Saturday" />
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" name="saturday" onClick={Toggle} value={meeting.saturday} />
                                         <label className="form-check-label">Saturday</label>
                                     </div>
                                 </div>

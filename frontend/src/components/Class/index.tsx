@@ -19,7 +19,14 @@ function Class(props: any) {
         participants: "",
         startDate: "",
         startTime: "",
-        description: ""
+        description: "",
+        sunday: "",
+        monday: "",
+        tuesday: "",
+        wednesday: "",
+        thursday: "",
+        friday: "",
+        saturday: "",
     })
 
     const [instructor, setInstructor] = useState({
@@ -33,12 +40,20 @@ function Class(props: any) {
         {
             axios.get('http://localhost:8081/courses/id/' + id)
                 .then(response => {
-                    setCourse(response.data)
+                    setCourse(response.data);
                     setInstructor(response.data.instructorId);
                 })
                 .catch(error => console.error(error))
         }
     }, []);
+
+    const sunday = course.sunday ? "Class" : "Off";
+    const monday = course.monday ? "Class" : "Off";
+    const tuesday = course.tuesday ? "Class" : "Off";
+    const wednesday = course.wednesday ? "Class" : "Off";
+    const thursday = course.thursday ? "Class" : "Off";
+    const friday = course.friday ? "Class" : "Off";
+    const saturday = course.saturday ? "Class" : "Off";
 
     return (
         <div className="container">
@@ -55,6 +70,16 @@ function Class(props: any) {
                             <h5>Start Time: {course.startTime}</h5>
                             <h5>End Time: {course.endTime}</h5>
                         </div>
+                    </div>
+                    <br />
+                    <div className="row " style={{textAlign: "center"}}>
+                        <div className="col-sm-1" style={{border: "solid", borderColor: "rgb(228, 111, 3)", width: "130px", height: "130px"}}><h5>Sunday</h5><h5>{sunday}</h5></div>
+                        <div className="col-sm-1"style={{border: "solid", borderColor: "rgb(228, 111, 3)", width: "130px", height: "130px"}}><h5>Monday</h5><h5>{monday}</h5></div>
+                        <div className="col-sm-1"style={{border: "solid", borderColor: "rgb(228, 111, 3)", width: "130px", height: "130px"}}><h5>Tuesday</h5><h5>{tuesday}</h5></div>
+                        <div className="col-sm-1"style={{border: "solid", borderColor: "rgb(228, 111, 3)", width: "130px", height: "130px"}}><h5>Wednesday</h5><h5>{wednesday}</h5></div>
+                        <div className="col-sm-1"style={{border: "solid", borderColor: "rgb(228, 111, 3)", width: "130px", height: "130px"}}><h5>Thursday</h5><h5>{thursday}</h5></div>
+                        <div className="col-sm-1"style={{border: "solid", borderColor: "rgb(228, 111, 3)", width: "130px", height: "130px"}}><h5>Friday</h5><h5>{friday}</h5></div>
+                        <div className="col-sm-1"style={{border: "solid", borderColor: "rgb(228, 111, 3)", width: "130px", height: "130px"}}><h5>Saturday</h5><h5>{saturday}</h5></div>
                     </div>
                 </div>
                 <div className="col-sm-3 ms-auto text-center" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>

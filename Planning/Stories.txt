@@ -1,9 +1,14 @@
+
+Pass:
 1) As a user, I can login to the site
 2) As a user, I can register for a class
-3) As a teacher, I can accept students into my class
 4) As a user, I can view all my classes
 5) As a user, I can select a class
+8) As a user, I can mark present or absent on a class
+
+
+NotYet:
+3) As a teacher, I can accept students into my class
 6) As a teacher, I can add assignments to my class
 7) As a teacher, I can add grades to my assignments
-8) As a user, I can mark present or absent on a class
 9) As a service, I can display webpages depending on role

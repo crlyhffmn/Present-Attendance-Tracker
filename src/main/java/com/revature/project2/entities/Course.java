@@ -23,7 +23,6 @@ public class Course {
 
     @ManyToMany(mappedBy = "courses", cascade = CascadeType.ALL)
     private List<User> participants = new ArrayList<>();
-    // private List<Days> days;
     private Date startDate;
     private Date endDate;
     @JsonFormat(pattern = "HH:mm")
@@ -32,6 +31,70 @@ public class Course {
     @JsonFormat(pattern = "HH:mm")
     @JsonDeserialize(using = SqlTimeDeserializer.class)
     private Time endTime;
+
+    private boolean sunday;
+    private boolean monday;
+    private boolean tuesday;
+    private boolean wednesday;
+    private boolean thursday;
+    private boolean friday;
+    private boolean saturday;
+
+    public boolean isSunday() {
+        return sunday;
+    }
+
+    public void setSunday(boolean sunday) {
+        this.sunday = sunday;
+    }
+
+    public boolean isMonday() {
+        return monday;
+    }
+
+    public void setMonday(boolean monday) {
+        this.monday = monday;
+    }
+
+    public boolean isTuesday() {
+        return tuesday;
+    }
+
+    public void setTuesday(boolean tuesday) {
+        this.tuesday = tuesday;
+    }
+
+    public boolean isWednesday() {
+        return wednesday;
+    }
+
+    public void setWednesday(boolean wednesday) {
+        this.wednesday = wednesday;
+    }
+
+    public boolean isThursday() {
+        return thursday;
+    }
+
+    public void setThursday(boolean thursday) {
+        this.thursday = thursday;
+    }
+
+    public boolean isFriday() {
+        return friday;
+    }
+
+    public void setFriday(boolean friday) {
+        this.friday = friday;
+    }
+
+    public boolean isSaturday() {
+        return saturday;
+    }
+
+    public void setSaturday(boolean saturday) {
+        this.saturday = saturday;
+    }
 
     public List<User> getParticipants() {
         return participants;
@@ -44,15 +107,6 @@ public class Course {
     public void addParticipant(User participant) {
         this.participants.add(participant);
     }
-
-    // public List<Days> getDays() {
-    // return days;
-    // }
-    //
-    // public void setDays(List<Days> days) {
-    // this.days = days;
-    // }
-
 
     public String getDescription() {
         return description;
@@ -123,14 +177,20 @@ public class Course {
         return "Course{" +
                 "id=" + id +
                 ", courseName='" + courseName + '\'' +
+                ", description='" + description + '\'' +
                 ", instructorId=" + instructorId +
-                // ", participants=" + participants +
-                // ", days=" + days +
+                ", participants=" + participants +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
-                ", description=" + description +
+                ", sunday=" + sunday +
+                ", monday=" + monday +
+                ", tuesday=" + tuesday +
+                ", wednesday=" + wednesday +
+                ", thursday=" + thursday +
+                ", friday=" + friday +
+                ", saturday=" + saturday +
                 '}';
     }
 }
