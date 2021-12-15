@@ -5,15 +5,17 @@ import { useNavigate } from "react-router-dom";
 function CreateClass() {
 
     const navigate = useNavigate();
-    useEffect(() => {
+
+    const getInstructor = () => {
         axios.get('http://localhost:8081/users/email/' + localStorage.getItem('currentUserEmail'))
             .then(response => {
+                console.log("getting current user...")
                 setMeeting({ ...meeting, instructorId: response.data });
             })
             .catch(error => {
-                console.error("getCurrentUser() in CreateClass: " + error);
+                console.error("getCurrentUser in CreateClass: " + error);
             })
-    }, []);
+    }
 
     const [meeting, setMeeting] = useState({
         courseName: '',
@@ -21,7 +23,7 @@ function CreateClass() {
         endDate: '',
         startTime: '',
         endTime: '',
-        instructorId: "",
+        instructorId: '',
         description: "",
         sunday: "false",
         monday: "false",
@@ -34,6 +36,7 @@ function CreateClass() {
 
     function onSubmitHandler(event: any) {
         event.preventDefault();
+        getInstructor();
         console.log(meeting);
         axios.post('http://localhost:8081/courses', meeting)
             .then(response => {
@@ -139,7 +142,7 @@ function CreateClass() {
                                 <div className="form-group">
                                     <label>Days of the Week</label><br />
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" name="sunday" onClick={Toggle} value={meeting.sunday}/>
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" name="sunday" onClick={Toggle} value={meeting.sunday} />
                                         <label className="form-check-label">Sunday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
@@ -151,11 +154,11 @@ function CreateClass() {
                                         <label className="form-check-label">Tuesday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" name="wednesday" onClick={Toggle} value={meeting.wednesday}/>
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" name="wednesday" onClick={Toggle} value={meeting.wednesday} />
                                         <label className="form-check-label">Wednesday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" name="thursday" onClick={Toggle} value={meeting.thursday}/>
+                                        <input className="form-check-input" type="checkbox" id="inlineCheckbox3" name="thursday" onClick={Toggle} value={meeting.thursday} />
                                         <label className="form-check-label">Thursday</label>
                                     </div>
                                     <div className="form-check form-check-inline">
