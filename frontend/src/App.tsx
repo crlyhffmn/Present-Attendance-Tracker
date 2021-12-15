@@ -10,17 +10,20 @@ import ClassPage from "./pages/ClassPage"
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path='/create-class' element={<CreateClassPage />} />
-        <Route path='/my-account' element={<AccountPage />} />
-        <Route path='/class' element={<ClassPage />} />
-        <Route path='/course-reg' element={<ClassRegPage />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/create-class' element={<CreateClassPage />} />
+          <Route path='/my-account' element={<AccountPage />} />
+          <Route path='/class' element={<ClassPage />} />
+          <Route path='/course-reg' element={<ClassRegPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+
   );
 }
 
