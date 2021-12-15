@@ -32,7 +32,6 @@ public class CourseServiceImpl implements CourseService{
     public Course updateCourse(long id, Course updateCourse) {
         Course course = repository.findById(id).get();
         course.setCourseName(updateCourse.getCourseName());
-        //course.setDays(updateCourse.getDays());
         course.setEndDate(updateCourse.getEndDate());
         course.setEndTime(updateCourse.getEndTime());
         course.setStartDate(updateCourse.getStartDate());

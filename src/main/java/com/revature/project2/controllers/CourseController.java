@@ -24,6 +24,11 @@ public class CourseController {
         return service.getAllCourses();
     }
 
+    @GetMapping("/participant_course")
+    public List<CourseParticipants> getCourseParticipants(){
+        return participantsService.getAllCourseParticipants();
+    }
+
     @GetMapping("/courses/id/{id}")
     public Course getCourseById(@PathVariable("id") long id){
         return service.getCourseById(id);
