@@ -71,6 +71,18 @@ function Class(props: any) {
         console.log(participants)
     }
 
+    //Some Time Code I Stole From the Internet
+    function tConvert (time: any) {
+        // Check correct time format and split into components
+        time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+      
+        if (time.length > 1) { // If time format correct
+          time = time.slice (1);  // Remove full string match value
+          time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+          time[0] = +time[0] % 12 || 12; // Adjust hours
+        }
+        return time.join (''); // return adjusted time or original string
+      }
     const sunday = course.sunday ? "Class" : "Off";
     const monday = course.monday ? "Class" : "Off";
     const tuesday = course.tuesday ? "Class" : "Off";
@@ -91,8 +103,8 @@ function Class(props: any) {
                             <h5>End Date: {course.endDate}</h5>
                         </div>
                         <div className="col-sm">
-                            <h5>Start Time: {course.startTime}</h5>
-                            <h5>End Time: {course.endTime}</h5>
+                            <h5>Start Time: {tConvert(course.startTime)}</h5>
+                            <h5>End Time: {tConvert(course.endTime)}</h5>
                         </div>
                     </div>
                     <br />
