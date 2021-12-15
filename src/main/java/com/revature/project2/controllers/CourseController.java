@@ -1,9 +1,12 @@
 package com.revature.project2.controllers;
 
+import com.revature.project2.entities.Attendance;
 import com.revature.project2.entities.Course;
 import com.revature.project2.entities.CourseParticipants;
 import com.revature.project2.entities.User;
 import com.revature.project2.repository.CourseParticipantsRepository;
+import com.revature.project2.services.AttendanceService;
+import com.revature.project2.services.AttendanceServiceImpl;
 import com.revature.project2.services.CourseParticipantsServiceImpl;
 import com.revature.project2.services.CourseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +20,11 @@ public class CourseController {
     @Autowired
     private CourseServiceImpl service;
 
-    @Autowired CourseParticipantsServiceImpl participantsService;
+    @Autowired
+    CourseParticipantsServiceImpl participantsService;
+
+    @Autowired
+    AttendanceServiceImpl attendanceService;
 
     @GetMapping("/courses")
     public List<Course> getCourses(){
@@ -60,6 +67,16 @@ public class CourseController {
     public String deleteCourse(@PathVariable("id") long id){
         service.deleteCourse(id);
         return "record deleted successfully";
+    }
+
+    @GetMapping("/courses/attendance/{id}")
+    public List<Attendance> getAttendanceByUSerId(@PathVariable("id") long id){
+        return attendanceService.getAttendanceByUser(id);
+    }
+
+    @PostMapping("/courses/attendance")
+    public Attendance saveAttendance(@RequestBody Attendance attendance){
+        return attendanceService.addAttendance(attendance);
     }
 
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect, } from "react";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import Participants from "./Participants";
+import Attendance from "./Attendance";
 
 
 function Class(props: any) {
@@ -9,6 +10,7 @@ function Class(props: any) {
 
     let data = props.props
     let id: string = data[0];
+    let userId = localStorage.getItem("currentUserId");
 
     for (var i = 1; i < data.length; i++) {
         id += data[i];
@@ -59,6 +61,24 @@ function Class(props: any) {
         }
     }, []);
 
+    const attendance = {
+        id: 1,
+        courseId: id,
+        date: new Date(),
+        userId: userId
+    }
+    const attendanceError = {
+        error: ""
+    }
+    function onChangeHandler(event: any) {
+        axios.post('http://localhost:8081/courses/attendance', attendance)
+            .then(response => {
+                setCourseParticipants(response.data)
+            })
+            .catch(error => console.error(error))
+        window.location.reload();
+    }
+
     let participants: any[] = new Array();
     let cp: any = courseParticipants;
 
@@ -68,21 +88,20 @@ function Class(props: any) {
                 participants.push(cp[i].participant_id)
             }
         }
-        console.log(participants)
     }
 
     //Some Time Code I Stole From the Internet
-    function tConvert (time: any) {
+    function tConvert(time: any) {
         // Check correct time format and split into components
-        time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
-      
+        time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
         if (time.length > 1) { // If time format correct
-          time = time.slice (1);  // Remove full string match value
-          time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
-          time[0] = +time[0] % 12 || 12; // Adjust hours
+            time = time.slice(1);  // Remove full string match value
+            time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+            time[0] = +time[0] % 12 || 12; // Adjust hours
         }
-        return time.join (''); // return adjusted time or original string
-      }
+        return time.join(''); // return adjusted time or original string
+    }
     const sunday = course.sunday ? "Class" : "Off";
     const monday = course.monday ? "Class" : "Off";
     const tuesday = course.tuesday ? "Class" : "Off";
@@ -90,6 +109,29 @@ function Class(props: any) {
     const thursday = course.thursday ? "Class" : "Off";
     const friday = course.friday ? "Class" : "Off";
     const saturday = course.saturday ? "Class" : "Off";
+
+    const [attendanceAll, setAttendance] = useState([]);
+    useEffect(() => {
+        {
+            axios.get('http://localhost:8081/courses/attendance/' + userId)
+                .then(response => {
+                    setAttendance(response.data)
+                })
+                .catch(error => console.error(error))
+        }
+    }, []);
+
+    let userAttendance: any[] = new Array();
+    let a: any = attendanceAll;
+    if (attendanceAll.length > 0) {
+        for (let i = 0; i < a.length; i++) {
+            if (a[i].userId == userId) {
+                userAttendance.push(a[i].date);
+            }
+        }
+    }
+
+
 
     return (
         <div className="container">
@@ -123,13 +165,7 @@ function Class(props: any) {
                     <h3>{instructor.firstName + " " + instructor.lastName}</h3><br />
                     <h2>Email:</h2>
                     <h4>{instructor.email}</h4><br /><br />
-                    <Button
-                        className="btn btn-block"
-                        size="lg"
-                        style={{ backgroundColor: "rgb(228, 111, 3)" }}
-                    >
-                        <a className="text-dark" href="/" style={{ textDecoration: "none" }}>Mark Attendance</a>
-                    </Button><br /><br />
+                    <br /><br />
                 </div>
             </div>
             <div className="row">
@@ -139,7 +175,23 @@ function Class(props: any) {
                         participants.map(item => <Participants data={item} />)
                     }
                 </div>
-
+                <div className="col-sm-6" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>
+                    <h4>Assignments</h4>
+                </div>
+                <div className="col-sm-3" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>
+                    <h4>Attendance</h4>
+                    <Button
+                        className="btn btn-block"
+                        size="lg"
+                        style={{ backgroundColor: "rgb(228, 111, 3)" }}
+                        onClick={onChangeHandler}
+                    >
+                        Mark Attendance
+                    </Button>
+                    {
+                        userAttendance.map(item => <Attendance data={item} />)
+                    }
+                </div>
             </div>
         </div>
     )
