@@ -4,6 +4,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Classes from "./Classes";
 import "../../style/MyAccountPage.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAppleAlt, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function Account() {
     var name = localStorage.getItem('currentUserFirstName')
@@ -62,17 +64,23 @@ function Account() {
             <br />
             <Row id="welcome">
                 <Alert id="welcomeAlert" variant="secondary"><h1>Welcome {name}!</h1></Alert>
-                
+
             </Row>
             <Row>
-                <Col xs={2} id="leftCol" style={{border: 1, borderColor: "black"}}>
+                <Col xs={2} id="leftCol" style={{ border: 1, borderColor: "black" }}>
                     <ListGroup>
                         <ListGroup.Item id="listHead">User Actions</ListGroup.Item>
-                        <ListGroup.Item action href="/create-class" style={{backgroundColor: "rgb(228, 111, 3)"}}>
-                            <div className="liGroupItem">Create a Class</div>
+                        <ListGroup.Item action href="/create-class" style={{ backgroundColor: "rgb(228, 111, 3)" }}>
+                            <div className="liGroupItem">
+                                <FontAwesomeIcon icon={faPlus} />
+                                {" "}Create a Class
+                            </div>
                         </ListGroup.Item>
-                        <ListGroup.Item action href="/course-reg" style={{backgroundColor: "rgb(228, 111, 3)"}}>
-                            <div className="liGroupItem">Register for a Class</div>
+                        <ListGroup.Item action href="/course-reg" style={{ backgroundColor: "rgb(228, 111, 3)" }}>
+                            <div className="liGroupItem">
+                                <FontAwesomeIcon icon={faAppleAlt} />
+                                {" "}Register for a Class
+                            </div>
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>
