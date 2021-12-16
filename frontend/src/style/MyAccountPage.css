@@ -1,12 +1,23 @@
 #welcome{
     text-align: center;
+    padding: 20px;
 }
 #leftCol{
-    float: left;
+    text-align: center;
+}
+#rightCol{
+
+}
+#listHead{
+    background-color: lightgray;
+    color: black;
+    font-size: larger;
+    font-weight: 500;
 }
 .liGroupItem{
     font-size: larger;
     font-weight:500;
+    color: white;
 }
 #row2{
     width: 100%;

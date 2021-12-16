@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from "react";
-import { Button, ListGroup } from "react-bootstrap";
+import { Alert, Button, Col, ListGroup, Row } from "react-bootstrap";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Classes from "./Classes";
@@ -58,14 +58,16 @@ function Account() {
 
 
     return (
-        <div className="container" >
+        <div>
             <br />
-            <div className="row" id="welcome">
-                <h1>Welcome {name}!</h1>
-            </div>
-            <div className="row justify-content-start" id="row2">
-                <div className="col-sm-5 text-center" id="leftCol" style={{border: 1, borderColor: "black"}}>
+            <Row id="welcome">
+                <Alert id="welcomeAlert" variant="secondary"><h1>Welcome {name}!</h1></Alert>
+                
+            </Row>
+            <Row>
+                <Col xs={2} id="leftCol" style={{border: 1, borderColor: "black"}}>
                     <ListGroup>
+                        <ListGroup.Item id="listHead">User Actions</ListGroup.Item>
                         <ListGroup.Item action href="/create-class" style={{backgroundColor: "rgb(228, 111, 3)"}}>
                             <div className="liGroupItem">Create a Class</div>
                         </ListGroup.Item>
@@ -73,14 +75,16 @@ function Account() {
                             <div className="liGroupItem">Register for a Class</div>
                         </ListGroup.Item>
                     </ListGroup>
-                </div>
-                <div className="col-sm" style={{ overflowY: "auto" }}>
+                </Col>
+                <Col></Col>
+                <Col className="col-sm" style={{ overflowY: "auto" }} id="rightCol">
                     <h3 className="text-center">Your Enrolled Classes</h3>
                     {
                         enrolledCourses.map(item => <Classes data={item} />)
                     }
-                </div>
-            </div>
+                </Col>
+                <Col></Col>
+            </Row>
         </div>
     )
 }
