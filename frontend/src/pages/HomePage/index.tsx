@@ -1,3 +1,4 @@
+import { Container } from "react-bootstrap";
 import Jumbotron from "../../components/Home/Jumbotron";
 import Navigation from "../../components/Navigation";
 
@@ -5,7 +6,10 @@ const HomePage = () => {
     return (
         <>
             <Navigation />
-            <Jumbotron />
+            <br></br>
+            <Container >
+                <Jumbotron />
+            </Container>
         </>
     )
 }

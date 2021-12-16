@@ -24,7 +24,7 @@ const Navigation = () => {
 
   const guestLinks = (
     <>
-      <Navbar variant="dark" bg="dark" expand="lg">
+      <Navbar variant="dark" bg="dark" expand="lg" id="navbar">
         <Container fluid>
           <Navbar.Brand style={{ marginLeft: "15px" }} href="/">
             <FontAwesomeIcon icon={faGift} />{' '}Present
@@ -52,7 +52,7 @@ const Navigation = () => {
 
   const userLinks = (
     <>
-      <Navbar variant="dark" bg="dark" expand="lg" >
+      <Navbar variant="dark" expand="lg" id="navbar">
         <Container fluid >
           <Navbar.Brand style={{ marginLeft: "15px" }} href="/">
             <FontAwesomeIcon icon={faGift} />{' '}Present

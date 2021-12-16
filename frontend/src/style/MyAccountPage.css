@@ -1,0 +1,13 @@
+#welcome{
+    text-align: center;
+}
+#leftCol{
+    float: left;
+}
+.liGroupItem{
+    font-size: larger;
+    font-weight:500;
+}
+#row2{
+    width: 100%;
+}
