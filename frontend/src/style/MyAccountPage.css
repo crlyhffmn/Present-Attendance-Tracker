@@ -15,10 +15,14 @@
     font-size: larger;
     font-weight: 500;
 }
-.liGroupItem{
+#liGroupItem1, #liGroupItem2{
+    background-color: rgb(228, 111, 3);
     font-size: larger;
     font-weight:500;
     color: black;
+}
+#liGroupItem1:hover, #liGroupItem2:hover{
+    background-color: rgb(228, 111, 3, .75);
 }
 #row2{
     width: 100%;

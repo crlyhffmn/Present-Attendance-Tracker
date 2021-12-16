@@ -70,17 +70,13 @@ function Account() {
                 <Col xs={2} id="leftCol" style={{ border: 1, borderColor: "black" }}>
                     <ListGroup>
                         <ListGroup.Item id="listHead">User Actions</ListGroup.Item>
-                        <ListGroup.Item action href="/create-class" style={{ backgroundColor: "rgb(228, 111, 3)" }}>
-                            <div className="liGroupItem">
-                                <FontAwesomeIcon icon={faPlus} />
-                                {" "}Create a Class
-                            </div>
+                        <ListGroup.Item action href="/create-class" id="liGroupItem1">
+                            <FontAwesomeIcon icon={faPlus} />
+                            {" "}Create a Class
                         </ListGroup.Item>
-                        <ListGroup.Item action href="/course-reg" style={{ backgroundColor: "rgb(228, 111, 3)" }}>
-                            <div className="liGroupItem">
-                                <FontAwesomeIcon icon={faAppleAlt} />
-                                {" "}Register for a Class
-                            </div>
+                        <ListGroup.Item action href="/course-reg" id="liGroupItem2">
+                            <FontAwesomeIcon icon={faAppleAlt} />
+                            {" "}Register for a Class
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>
