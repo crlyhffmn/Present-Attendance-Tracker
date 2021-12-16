@@ -10,7 +10,6 @@ import ClassPage from "./pages/ClassPage"
 
 function App() {
   return (
-    <>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<HomePage />} />
@@ -22,8 +21,6 @@ function App() {
           <Route path='/course-reg' element={<ClassRegPage />} />
         </Routes>
       </BrowserRouter>
-    </>
-
   );
 }
 

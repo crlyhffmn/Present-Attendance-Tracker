@@ -24,7 +24,7 @@ const Navigation = () => {
 
   const guestLinks = (
     <>
-      <Navbar variant="dark" bg="dark" expand="lg" id="navbar">
+      <Navbar variant="dark" expand="lg" id="navbar">
         <Container fluid>
           <Navbar.Brand style={{ marginLeft: "15px" }} href="/">
             <FontAwesomeIcon icon={faGift} />{' '}Present
@@ -32,15 +32,15 @@ const Navigation = () => {
           <Navbar.Toggle aria-controls="navbar-dark-example" />
           <Navbar.Collapse id="navbar-dark-example">
             <Nav className="me-auto">
-              <Link to={"/"} className="nav-link">
+              <Link to={"/"} className="nav-link" style={{ color: "white" }}>
                 <FontAwesomeIcon icon={faHome} /> Home
               </Link>
             </Nav>
             <Nav>
-              <Link to={"/register"} className="nav-link">
+              <Link to={"/register"} className="nav-link" style={{ color: "white" }}>
                 <FontAwesomeIcon icon={faUserPlus} /> Register
               </Link>
-              <Link to={"/login"} className="nav-link">
+              <Link to={"/login"} className="nav-link" style={{ color: "white" }}>
                 <FontAwesomeIcon icon={faSignInAlt} /> Login
               </Link>
             </Nav>
