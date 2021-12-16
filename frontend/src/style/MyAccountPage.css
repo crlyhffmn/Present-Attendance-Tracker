@@ -5,8 +5,9 @@
 #leftCol{
     text-align: center;
 }
-#rightCol{
-
+#wholePage{
+    height: 100%;
+    background-image: url("./pencils.jpg");
 }
 #listHead{
     background-color: lightgray;
