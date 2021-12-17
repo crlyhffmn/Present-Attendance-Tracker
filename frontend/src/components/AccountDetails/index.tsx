@@ -65,7 +65,9 @@ const AccountDetails = () => {
                             </Row>
                         </ListGroup>
                     </div>
+                    <button className="btn"><a className="text-dark" href="/register" style={{ textDecoration: "none" }}>Click Here to Edit Your Account Details</a></button>
                 </div>
+
             </Row>
         </div>
 
