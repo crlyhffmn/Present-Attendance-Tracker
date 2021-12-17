@@ -43,7 +43,7 @@ const AccountDetails = () => {
                                 <Col lg={2}>Password: </Col>
                                 <Col>
                                     <ListGroup.Item>
-                                        {user.password}
+                                        ********
                                     </ListGroup.Item>
                                 </Col>
                             </Row>
