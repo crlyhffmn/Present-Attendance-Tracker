@@ -73,7 +73,6 @@ const AccountDetails = () => {
                     </div>
                     <button className="btn"><a className="text-dark" href="/edit-account" style={{ textDecoration: "none" }}>Click Here to Edit Your Account Details</a></button>
                 </div>
-
             </Row>
         </div>
 
