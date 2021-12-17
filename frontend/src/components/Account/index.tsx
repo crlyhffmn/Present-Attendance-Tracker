@@ -67,7 +67,7 @@ function Account() {
 
             </Row>
             <Row>
-                <Col xs={2} id="leftCol" style={{ border: 1, borderColor: "black" }}>
+                <Col xs={3} id="leftCol" style={{ border: 1, borderColor: "black" }}>
                     <ListGroup>
                         <ListGroup.Item id="listHead">User Actions</ListGroup.Item>
                         <ListGroup.Item action href="/create-class" id="liGroupItem1">
@@ -81,6 +81,10 @@ function Account() {
                         <ListGroup.Item action href="/account-details" id="liGroupItem2">
                             <FontAwesomeIcon icon={faUserCircle} />
                             {" "}View Account Details
+                        </ListGroup.Item>
+                        <ListGroup.Item action href="/edit-account" id="liGroupItem2">
+                            <FontAwesomeIcon icon={faUserCircle} />
+                            {" "}Update Account Details
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>
