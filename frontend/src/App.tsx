@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage"
 import ClassPage from "./pages/ClassPage"
+import AccountDetailsPage from "./pages/AccountDetailsPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/my-account' element={<AccountPage />} />
           <Route path='/class' element={<ClassPage />} />
           <Route path='/course-reg' element={<ClassRegPage />} />
+          <Route path='/account-details' element={<AccountDetailsPage/>}/>
         </Routes>
       </BrowserRouter>
   );

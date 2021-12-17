@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Classes from "./Classes";
 import "../../style/MyAccountPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAppleAlt, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faAppleAlt, faPlus, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 function Account() {
     var name = localStorage.getItem('currentUserFirstName')
@@ -77,6 +77,10 @@ function Account() {
                         <ListGroup.Item action href="/course-reg" id="liGroupItem2">
                             <FontAwesomeIcon icon={faAppleAlt} />
                             {" "}Register for a Class
+                        </ListGroup.Item>
+                        <ListGroup.Item action href="/account-details" id="liGroupItem2">
+                            <FontAwesomeIcon icon={faUserCircle} />
+                            {" "}View Account Details
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>
