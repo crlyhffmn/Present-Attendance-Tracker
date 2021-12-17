@@ -1,3 +1,5 @@
+import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Col, Container, ListGroup, Row } from "react-bootstrap";
@@ -32,7 +34,9 @@ const AccountDetails = () => {
                     <div className="wrapper">
                         <ListGroup>
                             <Row>
-                                <Col lg={2}>Email: </Col>
+                                <Col lg={2}>
+                                    <FontAwesomeIcon icon={faEnvelope} /> {" "} Email:
+                                </Col>
                                 <Col>
                                     <ListGroup.Item>
                                         {user.email}
@@ -40,7 +44,9 @@ const AccountDetails = () => {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col lg={2}>Password: </Col>
+                                <Col lg={2}>
+                                    <FontAwesomeIcon icon={faLock} /> {" "}Password:
+                                </Col>
                                 <Col>
                                     <ListGroup.Item>
                                         ********
@@ -65,7 +71,7 @@ const AccountDetails = () => {
                             </Row>
                         </ListGroup>
                     </div>
-                    <button className="btn"><a className="text-dark" href="/register" style={{ textDecoration: "none" }}>Click Here to Edit Your Account Details</a></button>
+                    <button className="btn"><a className="text-dark" href="/edit-account" style={{ textDecoration: "none" }}>Click Here to Edit Your Account Details</a></button>
                 </div>
 
             </Row>
