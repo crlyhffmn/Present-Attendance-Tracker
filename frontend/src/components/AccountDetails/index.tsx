@@ -2,7 +2,7 @@ import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Col, Container, ListGroup, Row } from "react-bootstrap";
+import { Col, Container, FormLabel, ListGroup, Row } from "react-bootstrap";
 import "../../style/Login-RegisterForm.css";
 
 const AccountDetails = () => {
@@ -34,28 +34,8 @@ const AccountDetails = () => {
                 <div className="col-lg-6">
                     <div className="wrapper">
                         <ListGroup>
-                            <Row>
-                                <Col lg={2}>
-                                    <FontAwesomeIcon icon={faEnvelope} /> {" "} Email:
-                                </Col>
-                                <Col>
-                                    <ListGroup.Item>
-                                        {user.email}
-                                    </ListGroup.Item>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col lg={2}>
-                                    <FontAwesomeIcon icon={faLock} /> {" "}Password:
-                                </Col>
-                                <Col>
-                                    <ListGroup.Item>
-                                        ********
-                                    </ListGroup.Item>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col lg={2}>First Name: </Col>
+                        <Row>
+                                <FormLabel>First Name:</FormLabel>
                                 <Col>
                                     <ListGroup.Item>
                                         {user.firstName}
@@ -63,10 +43,30 @@ const AccountDetails = () => {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col lg={2}>Last Name: </Col>
+                            <FormLabel>Last Name:</FormLabel>
                                 <Col>
                                     <ListGroup.Item>
                                         {user.lastName}
+                                    </ListGroup.Item>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <FormLabel>
+                                    <FontAwesomeIcon icon={faEnvelope} /> {" "} Email:
+                                </FormLabel>
+                                <Col>
+                                    <ListGroup.Item>
+                                        {user.email}
+                                    </ListGroup.Item>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <FormLabel>
+                                    <FontAwesomeIcon icon={faLock} /> {" "}Password:
+                                </FormLabel>
+                                <Col>
+                                    <ListGroup.Item>
+                                        ********
                                     </ListGroup.Item>
                                 </Col>
                             </Row>

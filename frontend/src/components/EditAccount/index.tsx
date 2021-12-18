@@ -36,8 +36,8 @@ const EditAccount = () => {
         axios.put(`http://localhost:8081/users/${currentId}`, user)
             .then(response => {
                 setUser(response.data);
-                localStorage.setItem('currentUserFirstName', response.data.firstName);
-                localStorage.setItem('currentUserEmail', response.data.email);
+                localStorage.setItem('currentUserFirstName', user.firstName);
+                localStorage.setItem('currentUserEmail', user.email);
                 console.log(response.data);
                 navigate('/account-details');
             })
