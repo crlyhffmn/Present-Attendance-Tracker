@@ -18,6 +18,7 @@ const AccountDetails = () => {
             const id = localStorage.getItem('currentUserId');
             axios.get(`http://localhost:8081/users/${id}`)
                 .then(response => {
+                    console.log(response.data);
                     setUser(response.data);
                 })
                 .catch(error => {

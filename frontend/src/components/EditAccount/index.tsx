@@ -9,8 +9,10 @@ import "../../style/Login-RegisterForm.css";
 const EditAccount = () => {
 
     const navigate = useNavigate();
+    const currentId = localStorage.getItem('currentUserId');
 
     let [user, setUser] = useState({
+        id: '',
         email: '',
         password: '',
         firstName: '',
@@ -18,10 +20,10 @@ const EditAccount = () => {
     });
     useEffect(() => {
         {
-            const id = localStorage.getItem('currentUserId');
-            axios.get(`http://localhost:8081/users/${id}`)
+                axios.get(`http://localhost:8081/users/${currentId}`)
                 .then(response => {
                     setUser(response.data);
+                    console.log(response.data);
                 })
                 .catch(error => {
                     console.error(error);
@@ -31,12 +33,10 @@ const EditAccount = () => {
 
     function onSubmitHandler(event: any) {
         event.preventDefault();
-        const id = localStorage.getItem('currentUserId');
-        axios.put(`http://localhost:8081/users/${id}`, user)
+        axios.put(`http://localhost:8081/users/${currentId}`, user)
             .then(response => {
                 setUser(response.data);
                 localStorage.setItem('currentUserFirstName', response.data.firstName);
-                localStorage.setItem('currentUserId', response.data.id);
                 localStorage.setItem('currentUserEmail', response.data.email);
                 console.log(response.data);
                 navigate('/account-details');
@@ -52,6 +52,7 @@ const EditAccount = () => {
             ...user,
             [event.target.name]: event.target.value,
         });
+        console.log(user);
     }
 
     return (
