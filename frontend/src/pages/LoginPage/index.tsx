@@ -1,12 +1,12 @@
 import React from 'react'
 import Login from '../../components/Login'
 import Navigation from '../../components/Navigation'
-import background from '../../style/pencils.png'
+import '../../style/Background.css'
 
 
 function LoginPage () {
     return (
-        <div style={{backgroundImage: `url(${background})`, minHeight:1440}}>
+        <div id="background">
             <Navigation />
             <Login />
         </div>

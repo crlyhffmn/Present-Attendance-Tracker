@@ -9,23 +9,26 @@ import RegisterPage from "./pages/RegisterPage"
 import ClassPage from "./pages/ClassPage"
 import AccountDetailsPage from "./pages/AccountDetailsPage";
 import EditAccountDetailsPage from "./pages/EditAccountDetailsPage";
+import React from "react";
 
-function App() {
-  return (
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/register' element={<RegisterPage />} />
-          <Route path='/create-class' element={<CreateClassPage />} />
-          <Route path='/my-account' element={<AccountPage />} />
-          <Route path='/class' element={<ClassPage />} />
-          <Route path='/course-reg' element={<ClassRegPage />} />
-          <Route path='/account-details' element={<AccountDetailsPage/>}/>
-          <Route path='/edit-account' element={<EditAccountDetailsPage/>}/>
-        </Routes>
-      </BrowserRouter>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <div style={{flex: 1}}>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/login' element={<LoginPage />} />
+            <Route path='/register' element={<RegisterPage />} />
+            <Route path='/create-class' element={<CreateClassPage />} />
+            <Route path='/my-account' element={<AccountPage />} />
+            <Route path='/class' element={<ClassPage />} />
+            <Route path='/course-reg' element={<ClassRegPage />} />
+            <Route path='/account-details' element={<AccountDetailsPage />} />
+            <Route path='/edit-account' element={<EditAccountDetailsPage />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
-
-export default App;

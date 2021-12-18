@@ -1,12 +1,12 @@
 import Account from "../../components/Account";
 import Navigation from "../../components/Navigation";
 import '../../style/MyAccountPage.css';
-import background from '../../style/pencils.png'
+import '../../style/Background.css'
 
 
 const AccountPage = () => {
     return (
-        <div style={{backgroundImage: `url(${background})`, minHeight:1440}}>
+        <div id="background">
             <Navigation />
             <Account />
         </div>
