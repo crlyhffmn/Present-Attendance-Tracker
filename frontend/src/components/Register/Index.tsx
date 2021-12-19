@@ -23,17 +23,26 @@ const Register = (props: any) => {
 
     function onSubmitHandler(event: any) {
         event.preventDefault();
-        axios.post('http://localhost:8081/users', user)
+        axios.get(`http://localhost:8081/users/email/${user.email}`)
             .then(response => {
-                setUser(response.data);
-                localStorage.setItem('currentUserFirstName', response.data.firstName);
-                localStorage.setItem('currentUserId', response.data.id);
-                localStorage.setItem('currentUserEmail', response.data.email);
-                console.log(response.data);
-                navigate('/my-account');
-            })
-            .catch(error => {
-                console.error(error);
+                if (response.data.length == 0) {
+                    axios.post('http://localhost:8081/users', user)
+                        .then(response => {
+                            setUser(response.data);
+                            localStorage.setItem('currentUserFirstName', response.data.firstName);
+                            localStorage.setItem('currentUserId', response.data.id);
+                            localStorage.setItem('currentUserEmail', response.data.email);
+                            console.log(response.data);
+                            navigate('/my-account');
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        })
+                } else {
+                    alert("That email is already in use, create an account with a unique email or contact an administrator");
+                }
+            }).catch(error => {
+                console.log(error);
             })
     }
 
@@ -48,6 +57,7 @@ const Register = (props: any) => {
     return (
         <div>
             <div>
+                <div className="row" id="alerts"></div>
                 <div className="row">
                     <div className="col-lg-3"></div>
                     <div className="col-lg-6">
@@ -106,7 +116,7 @@ const Register = (props: any) => {
                                     className="btn btn-block"
                                     style={{ backgroundColor: "rgb(228, 111, 3)" }}
                                 >
-                                Register
+                                    Register
                                 </Button>
                             </form>
                         </div>
