@@ -14,6 +14,10 @@ const Register = (props: any) => {
 
     const navigate = useNavigate();
 
+    const [error, setError] = useState({
+        credentialError: ""
+    })
+
     const [user, setUser] = useState({
         email: "",
         password: "",
@@ -39,7 +43,10 @@ const Register = (props: any) => {
                             console.error(error);
                         })
                 } else {
-                    alert("That email is already in use, create an account with a unique email or contact an administrator");
+                    setError({
+                        ...error,
+                        credentialError: "That Email is Already In Use"
+                    })
                 }
             }).catch(error => {
                 console.log(error);
@@ -57,7 +64,6 @@ const Register = (props: any) => {
     return (
         <div>
             <div>
-                <div className="row" id="alerts"></div>
                 <div className="row">
                     <div className="col-lg-3"></div>
                     <div className="col-lg-6">
@@ -98,6 +104,7 @@ const Register = (props: any) => {
                                         placeholder="example@mail.com"
                                     />
                                 </div>
+                                <small className="text-danger">{error.credentialError}</small>
                                 <div className="form-group">
                                     <label htmlFor="">
                                         <FontAwesomeIcon icon={faLock} /> {' '} Password
