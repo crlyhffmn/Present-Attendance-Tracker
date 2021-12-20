@@ -72,7 +72,7 @@ const RegisterForClass = () => {
 
 
     return (
-        <div className="container">
+        <div className="container" style={{paddingTop: "20px"}}>
             <Form onSubmit={onSubmitHandler}>
                 <InputGroup className="mb-3">
                     <InputGroup.Text>
@@ -83,8 +83,8 @@ const RegisterForClass = () => {
                         onChange={onChangeHandler}
                         name="course_id"
                     />
+                    <Button type="submit">Submit</Button><br />
                 </InputGroup>
-                <Button type="submit">Submit</Button><br />
                 <small className="text-success">{message.message}</small>
             </Form>
             <div className="row" style={{ overflowY: "auto"}}>
