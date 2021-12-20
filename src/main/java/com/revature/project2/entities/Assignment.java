@@ -13,7 +13,7 @@ public class Assignment {
 
     private long userId;
 
-    @ManyToOne(cascade = CascadeType.ALL, targetEntity = Course.class)
+    @ManyToOne(cascade = CascadeType.MERGE, targetEntity = Course.class)
     @JoinColumn(name = "course_id")
     private Course courseId;
     private String assignmentName;

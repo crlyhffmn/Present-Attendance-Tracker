@@ -34,7 +34,7 @@ const AccountDetails = () => {
                 <div className="col-lg-6">
                     <div className="wrapper">
                         <ListGroup>
-                        <Row>
+                            <Row>
                                 <FormLabel>First Name:</FormLabel>
                                 <Col>
                                     <ListGroup.Item>
@@ -43,7 +43,7 @@ const AccountDetails = () => {
                                 </Col>
                             </Row>
                             <Row>
-                            <FormLabel>Last Name:</FormLabel>
+                                <FormLabel>Last Name:</FormLabel>
                                 <Col>
                                     <ListGroup.Item>
                                         {user.lastName}

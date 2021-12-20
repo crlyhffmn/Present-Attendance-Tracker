@@ -3,12 +3,15 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 import Participants from "./Participants";
 import Attendance from "./Attendance";
+import { useNavigate } from "react-router-dom";
+import Assignments from "./Assignments";
+import '../../style/Table.css'
 
 
 function Class(props: any) {
 
-
-    let data = props.props
+    const navigate = useNavigate;
+    let data = props.props;
     let id: string = data[0];
     let userId = localStorage.getItem("currentUserId");
 
@@ -33,11 +36,21 @@ function Class(props: any) {
     })
 
     const [instructor, setInstructor] = useState({
+        id: "",
         email: "",
         firstName: "",
         lastName: "",
-        password: ""
     })
+
+    const attendance = {
+        id: 1,
+        courseId: id,
+        date: new Date(),
+        userId: userId
+    }
+    const attendanceError = {
+        error: ""
+    }
 
     useEffect(() => {
         {
@@ -45,6 +58,17 @@ function Class(props: any) {
                 .then(response => {
                     setCourse(response.data);
                     setInstructor(response.data.instructorId);
+                })
+                .catch(error => console.error(error))
+        }
+    }, []);
+
+    const [assignments, setAssignments] = useState([]);
+    useEffect(() => {
+        {
+            axios.get('http://localhost:8081/assignments/c/' + id)
+                .then(response => {
+                    setAssignments(response.data)
                 })
                 .catch(error => console.error(error))
         }
@@ -61,15 +85,17 @@ function Class(props: any) {
         }
     }, []);
 
-    const attendance = {
-        id: 1,
-        courseId: id,
-        date: new Date(),
-        userId: userId
-    }
-    const attendanceError = {
-        error: ""
-    }
+    const [attendanceAll, setAttendance] = useState([]);
+    useEffect(() => {
+        {
+            axios.get('http://localhost:8081/courses/attendance/' + userId)
+                .then(response => {
+                    setAttendance(response.data)
+                })
+                .catch(error => console.error(error))
+        }
+    }, []);
+
     function onChangeHandler(event: any) {
         axios.post('http://localhost:8081/courses/attendance', attendance)
             .then(response => {
@@ -90,6 +116,17 @@ function Class(props: any) {
         }
     }
 
+    let assign: any[] = new Array();
+    let as: any = assignments;
+
+    if (as.length > 0) {
+        for (let i = 0; i < as.length; i++) {
+            if (as[i].userId == userId) {
+                assign.push(as[i]);
+            }
+        }
+    }
+
     //Some Time Code I Stole From the Internet
     function tConvert(time: any) {
         // Check correct time format and split into components
@@ -102,6 +139,7 @@ function Class(props: any) {
         }
         return time.join(''); // return adjusted time or original string
     }
+
     const sunday = course.sunday ? "Class" : "Off";
     const monday = course.monday ? "Class" : "Off";
     const tuesday = course.tuesday ? "Class" : "Off";
@@ -110,34 +148,66 @@ function Class(props: any) {
     const friday = course.friday ? "Class" : "Off";
     const saturday = course.saturday ? "Class" : "Off";
 
-    const [attendanceAll, setAttendance] = useState([]);
-    useEffect(() => {
-        {
-            axios.get('http://localhost:8081/courses/attendance/' + userId)
-                .then(response => {
-                    setAttendance(response.data)
-                })
-                .catch(error => console.error(error))
-        }
-    }, []);
+    const isInstructor = userId == instructor.id;
 
     let userAttendance: any[] = new Array();
     let a: any = attendanceAll;
     if (attendanceAll.length > 0) {
         for (let i = 0; i < a.length; i++) {
-            if (a[i].userId == userId) {
+            if (a[i].userId == userId && a[i].courseId == id) {
                 userAttendance.push(a[i].date);
             }
         }
     }
 
+    const yesInstructor = (
+        <div className="" style={{overflowY: "auto", maxHeight: "500px"}}>
+            <br />
+            <Button
+                className="btn row"
+                size="lg"
+                style={{ backgroundColor: "rgb(228, 111, 3)" }}
+            >
+                <a className="text-dark" href={"/add-assignment?id=" + id} style={{ textDecoration: "none" }}>Add Assignment</a>
+            </Button>
+            <div>
+                <table>
+                    <tr>
+                        <th>Assignment Name</th>
+                        <th>Status</th>
+                        {/* <th>Grade</th> */}
+                        <th>Student</th>
+                    </tr>
+                    {
+                        assignments.map(item => <Assignments data={[item,true]} />)
+                    }
+                </table>
+            </div>
+        </div>
+    )
 
+    const notInstructor = (
+        <div className="">
+            <div>
+                <table>
+                    <tr>
+                        <th>Assignment Name</th>
+                        <th>Status</th>
+                        {/* <th>Grade</th> */}
+                    </tr>
+                    {
+                        assign.map(item => <Assignments data={[item,false]} />)
+                    }
+                </table>
+            </div>
+        </div>
+    );
 
     return (
         <div className="container">
             <h1 style={{ textAlign: "center" }}>{course.courseName}</h1>
             <div className="row">
-                <div className="col-sm" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>
+                <div className="col-sm-9" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>
                     <div className="row"><h4>{course.description}</h4></div><br />
                     <div className="row">
                         <div className="col-sm">
@@ -160,28 +230,24 @@ function Class(props: any) {
                         <div className="col-sm-1" style={{ border: "solid", borderColor: "rgb(228, 111, 3)", width: "130px", height: "130px" }}><h5>Saturday</h5><h5>{saturday}</h5></div>
                     </div>
                 </div>
-                <div className="col-sm-3 ms-auto text-center" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>
+                <div className="col-sm-3 text-center" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>
                     <h2>Instructor:</h2>
                     <h3>{instructor.firstName + " " + instructor.lastName}</h3><br />
                     <h2>Email:</h2>
-                    <h4>{instructor.email}</h4><br /><br />
-                    <br /><br />
+                    <h4>{instructor.email}</h4>
                 </div>
             </div>
-            <div className="row">
+            <div className="row" style={{ marginRight: "0" }}>
                 <div className="col-sm-3" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>
                     <h4>Participants in this course</h4>
                     {
                         participants.map(item => <Participants data={item} />)
                     }
                 </div>
-                <div className="col-sm-6" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>
-                    <h4>Assignments</h4>
-                </div>
                 <div className="col-sm-3" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>
                     <h4>Attendance</h4>
                     <Button
-                        className="btn btn-block"
+                        className="btn btn-block text-dark"
                         size="lg"
                         style={{ backgroundColor: "rgb(228, 111, 3)" }}
                         onClick={onChangeHandler}
@@ -191,6 +257,9 @@ function Class(props: any) {
                     {
                         userAttendance.map(item => <Attendance data={item} />)
                     }
+                </div>
+                <div className="col-sm-6 row" style={{ border: "solid", borderColor: "gray", background: "lightgray" }}>
+                    {isInstructor ? yesInstructor : notInstructor}
                 </div>
             </div>
         </div>

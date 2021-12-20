@@ -9,6 +9,7 @@ import RegisterPage from "./pages/RegisterPage"
 import ClassPage from "./pages/ClassPage"
 import AccountDetailsPage from "./pages/AccountDetailsPage";
 import EditAccountDetailsPage from "./pages/EditAccountDetailsPage";
+import AddAssignmentPage from "./pages/AddAssignmentPage";
 import React from "react";
 
 export default class App extends React.Component {
@@ -26,6 +27,7 @@ export default class App extends React.Component {
             <Route path='/course-reg' element={<ClassRegPage />} />
             <Route path='/account-details' element={<AccountDetailsPage />} />
             <Route path='/edit-account' element={<EditAccountDetailsPage />} />
+            <Route path='/add-assignment' element={<AddAssignmentPage />} />
           </Routes>
         </BrowserRouter>
       </div>

@@ -72,7 +72,6 @@ const Navigation = () => {
                 <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
               </Link>
             </Nav>
-
           </Navbar.Collapse>
         </Container>
       </Navbar>

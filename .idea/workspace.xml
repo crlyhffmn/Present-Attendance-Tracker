@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89f7e678-e43f-4080-ae97-f6a6ab74d023" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/project2/entities/Attendance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/project2/repository/AttendanceRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/project2/services/AttendanceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/project2/services/AttendanceServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Class/Participants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Class/Participants.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Account/Classes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Account/Classes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/AccountDetails/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/AccountDetails/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Class/Assignments.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Class/Assignments.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Class/Attendance.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Class/Attendance.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Class/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Class/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/project2/controllers/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/project2/controllers/CourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navigation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navigation/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/project2/entities/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/project2/entities/Assignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/revature/project2/controllers/CourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/project2/controllers/CourseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/project2/entities/Assignment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/project2/entities/Assignment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/project2/repository/CourseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/project2/repository/CourseRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/project2/services/CourseParticipantsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/project2/services/CourseParticipantsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/project2/services/CourseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/project2/services/CourseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/project2/services/CourseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/project2/services/CourseServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
