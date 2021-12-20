@@ -3,7 +3,6 @@ package com.revature.project2.services;
 import java.util.List;
 
 import com.revature.project2.entities.CourseParticipants;
-import com.revature.project2.entities.User;
 import com.revature.project2.repository.CourseParticipantsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

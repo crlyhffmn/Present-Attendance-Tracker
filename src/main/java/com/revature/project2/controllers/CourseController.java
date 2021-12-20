@@ -4,8 +4,6 @@ import com.revature.project2.entities.Attendance;
 import com.revature.project2.entities.Course;
 import com.revature.project2.entities.CourseParticipants;
 import com.revature.project2.entities.User;
-import com.revature.project2.repository.CourseParticipantsRepository;
-import com.revature.project2.services.AttendanceService;
 import com.revature.project2.services.AttendanceServiceImpl;
 import com.revature.project2.services.CourseParticipantsServiceImpl;
 import com.revature.project2.services.CourseServiceImpl;
@@ -78,5 +76,10 @@ public class CourseController {
     public Attendance saveAttendance(@RequestBody Attendance attendance){
         return attendanceService.addAttendance(attendance);
     }
+
+    // @GetMapping("/courses/instructor/{instructorId}")
+    // public Course getCourseByInstructor(@PathVariable("instructorId") long instructorId) {
+    //     return service.getCourseByInstructor(instructorId);
+    // }
 
 }

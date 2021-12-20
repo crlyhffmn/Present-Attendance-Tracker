@@ -39,6 +39,7 @@ function Account() {
 
     let enrolledCoursesId: number[] = new Array();
     let enrolledCourses: any[] = new Array();
+    let coursesCreated: number[] = new Array();
     let cp: any = courseParticipants;
     let c: any = courses;
 
@@ -54,6 +55,11 @@ function Account() {
                 if (enrolledCoursesId[i] == c[j].id) {
                     enrolledCourses.push(c[j])
                 }
+            }
+        }
+        for(let i = 0; i < courses.length; i++){
+            if(c[i].instructor_id == id){
+                coursesCreated.push(c[i]);
             }
         }
     }
@@ -88,14 +94,18 @@ function Account() {
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>
-                <Col></Col>
                 <Col className="col-sm" style={{ overflowY: "auto" }} id="rightCol">
                     <h3 className="text-center">Your Enrolled Classes</h3>
                     {
                         enrolledCourses.map(item => <Classes data={item} />)
                     }
                 </Col>
-                <Col></Col>
+                <Col className="col-sm" style={{overflowY: "auto"}} >
+                    <h3 className="text-center">Classes You Created</h3>
+                    {
+                        coursesCreated.map(item => <Classes data={item} />)
+                    }
+                </Col>
             </Row>
         </div>
     )

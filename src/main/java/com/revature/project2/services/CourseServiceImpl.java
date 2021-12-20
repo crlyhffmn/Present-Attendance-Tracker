@@ -52,4 +52,9 @@ public class CourseServiceImpl implements CourseService{
         System.out.println(course.getParticipants());
         return repository.save(course);
     }
+
+    // @Override
+    // public Course getCourseByInstructor(long instructorId) {
+    //     return repository.findCourseByInstructor(instructorId);
+    // }
 }

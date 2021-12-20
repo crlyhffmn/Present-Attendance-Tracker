@@ -3,11 +3,11 @@ package com.revature.project2.repository;
 import com.revature.project2.entities.Course;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Long> {
-    // @Modifying
-    // @Query("update Course c set c.participants = ?2 where c.course_id = ?1")
-    // void updateParticipants(long id, List<User> participants);
+    // @Query("select c from Course c where c.users.user_id = ?1")
+    // Course findCourseByInstructor(long instructorId);
 }

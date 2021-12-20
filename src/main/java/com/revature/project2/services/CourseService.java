@@ -15,4 +15,5 @@ public interface CourseService {
     Course updateCourse(long id, Course course);
     void deleteCourse(long id);
     Course addParticpant(long id, User participant);
+    // Course getCourseByInstructor(long instructorId);
 }
