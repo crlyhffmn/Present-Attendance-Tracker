@@ -14,7 +14,7 @@ import React from "react";
 export default class App extends React.Component {
   render() {
     return (
-      <div style={{flex: 1}}>
+      <div style={{flex: 1, height: "100vh", overflow: "auto"}}>
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<HomePage />} />

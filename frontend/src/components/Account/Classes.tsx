@@ -1,11 +1,4 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-
 function Classes(props: any) {
-
-    function onClickHandler() {
-        localStorage.setItem('currentCourseId', props.data.course_id);
-    }
 
     return (
         <div className="row">
