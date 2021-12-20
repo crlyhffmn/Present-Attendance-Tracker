@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Button, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
-function ClassCards(props: any) {
+function ClassCardsId(props: any) {
 
     console.log(props.data)
 
@@ -46,6 +46,10 @@ function ClassCards(props: any) {
             </Card.Body>
             <ListGroup className="list-group-flush">
                 <ListGroupItem>
+                    <label style={{ fontWeight: 'bold' }}>Course ID:</label>
+                    {" " + props.data.id}
+                </ListGroupItem>
+                <ListGroupItem>
                     <label style={{ fontWeight: 'bold' }}>Duration:</label>
                     {" " + props.data.startDate + " to " + props.data.endDate}
                 </ListGroupItem>
@@ -63,12 +67,12 @@ function ClassCards(props: any) {
                 </ListGroupItem>
                 <ListGroupItem>
                     <label style={{ fontWeight: 'bold' }}>Description:</label>
-                    {" " + props.data.description }
+                    {" " + props.data.description}
                 </ListGroupItem>
             </ListGroup>
-            <Button href={"/Class?id=" + props.data.id} style={{ color:"black", backgroundColor: "darkGray" }}>View Course</Button>
+            {/* <Button href={"/edit-class?id=" + props.data.id}>Modify Course</Button> */}
         </Card>
     )
 }
 
-export default ClassCards;
+export default ClassCardsId;

@@ -7,6 +7,7 @@ import "../../style/MyAccountPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAppleAlt, faPlus, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import ClassCards from "./ClassCards";
+import ClassCardsId from "./ClassCardsId";
 
 function Account() {
     var name = localStorage.getItem('currentUserFirstName')
@@ -107,7 +108,7 @@ function Account() {
                 <Col className="col-sm" style={{ overflow: "auto" }} >
                     <h3 className="text-center">Classes You Created</h3>
                     {
-                        coursesCreated.map(item => <ClassCards data={item} />)
+                        coursesCreated.map(item => <ClassCardsId data={item} />)
                     }
                 </Col>
             </Row>
