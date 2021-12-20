@@ -6,6 +6,7 @@ import Classes from "./Classes";
 import "../../style/MyAccountPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAppleAlt, faPlus, faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import { css } from "jquery";
 
 function Account() {
     var name = localStorage.getItem('currentUserFirstName')
@@ -43,6 +44,14 @@ function Account() {
     let cp: any = courseParticipants;
     let c: any = courses;
 
+    if(c.length > 0) {
+        for(let i = 0; i < courses.length; i++){
+            if(c[i].instructorId.id == id){
+                coursesCreated.push(c[i]);
+            }
+        }
+    }
+
 
     if (cp.length > 0 && courses.length > 0) {
         for (let i = 0; i < cp.length; i++) {
@@ -55,11 +64,6 @@ function Account() {
                 if (enrolledCoursesId[i] == c[j].id) {
                     enrolledCourses.push(c[j])
                 }
-            }
-        }
-        for(let i = 0; i < courses.length; i++){
-            if(c[i].instructor_id == id){
-                coursesCreated.push(c[i]);
             }
         }
     }
