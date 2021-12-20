@@ -1,12 +1,13 @@
 import React, { useState, useEffect, } from "react";
-import { Alert, Button, Col, ListGroup, Row } from "react-bootstrap";
+import { Alert, Col, ListGroup, Row } from "react-bootstrap";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Classes from "./Classes";
 import "../../style/MyAccountPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAppleAlt, faPlus, faUserCircle } from "@fortawesome/free-solid-svg-icons";
-import { css } from "jquery";
+import ClassCards from "./ClassCards";
+import ClassCardsId from "./ClassCardsId";
 
 function Account() {
     var name = localStorage.getItem('currentUserFirstName')
@@ -101,13 +102,13 @@ function Account() {
                 <Col className="col-sm" style={{ overflowY: "auto" }} id="rightCol">
                     <h3 className="text-center">Your Enrolled Classes</h3>
                     {
-                        enrolledCourses.map(item => <Classes data={item} />)
+                        enrolledCourses.map(item => <ClassCards data={item} />)
                     }
                 </Col>
-                <Col className="col-sm" style={{overflowY: "auto"}} >
+                <Col className="col-sm" style={{ overflow: "auto" }} >
                     <h3 className="text-center">Classes You Created</h3>
                     {
-                        coursesCreated.map(item => <Classes data={item} />)
+                        coursesCreated.map(item => <ClassCardsId data={item} />)
                     }
                 </Col>
             </Row>

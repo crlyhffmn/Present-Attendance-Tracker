@@ -11,11 +11,12 @@ import AccountDetailsPage from "./pages/AccountDetailsPage";
 import EditAccountDetailsPage from "./pages/EditAccountDetailsPage";
 import AddAssignmentPage from "./pages/AddAssignmentPage";
 import React from "react";
+import EditClassPage from "./pages/EditClassPage";
 
 export default class App extends React.Component {
   render() {
     return (
-      <div style={{flex: 1}}>
+      <div style={{flex: 1, height: "100vh", overflow: "auto"}}>
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<HomePage />} />
@@ -28,6 +29,7 @@ export default class App extends React.Component {
             <Route path='/account-details' element={<AccountDetailsPage />} />
             <Route path='/edit-account' element={<EditAccountDetailsPage />} />
             <Route path='/add-assignment' element={<AddAssignmentPage />} />
+            <Route path='/edit-class' element={<EditClassPage />} />
           </Routes>
         </BrowserRouter>
       </div>

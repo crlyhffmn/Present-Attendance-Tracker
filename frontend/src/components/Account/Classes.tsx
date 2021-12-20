@@ -1,6 +1,3 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-
 function Classes(props: any) {
 
     function onClickHandler() {

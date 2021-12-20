@@ -44,7 +44,7 @@ public class CourseController {
         return service.addCourse(course);
     }
 
-    @PutMapping("/courses/{id}")
+    @PutMapping("/courses/update/{id}")
     public String updateCourse(@PathVariable("id") long id, @RequestBody Course updateCourse){
         service.updateCourse(id, updateCourse);
         return "record updated successfully";

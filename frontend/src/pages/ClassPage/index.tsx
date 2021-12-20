@@ -2,6 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router';
 import Class from '../../components/Class';
 import Navigation from "../../components/Navigation";
+import '../../style/Background.css'
 
 
 function Course() {
@@ -11,7 +12,7 @@ function Course() {
     console.log(id)
 
     return (
-        <div>
+        <div id="background">
             <Navigation />
             <Class props={id}/>
         </div>

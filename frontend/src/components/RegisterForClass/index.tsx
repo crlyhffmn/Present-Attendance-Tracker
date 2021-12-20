@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
-import { Button, Form, FormControl, InputGroup } from "react-bootstrap";
+import { Alert, Button, Form, FormControl, InputGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Classes from "./Classes";
 
@@ -72,7 +72,12 @@ const RegisterForClass = () => {
 
 
     return (
-        <div className="container">
+        <div className="container" style={{ paddingTop: "20px" }}>
+            <Alert variant='info'>
+                <Alert.Heading>
+                    Some courses or meetings may have similar or identical names! Please contact your instructor for the correct ID.
+                </Alert.Heading>
+            </Alert>
             <Form onSubmit={onSubmitHandler}>
                 <InputGroup className="mb-3">
                     <InputGroup.Text>
@@ -83,12 +88,12 @@ const RegisterForClass = () => {
                         onChange={onChangeHandler}
                         name="course_id"
                     />
+                    <Button type="submit">Submit</Button><br />
                 </InputGroup>
-                <Button type="submit">Submit</Button><br />
                 <small className="text-success">{message.message}</small>
             </Form>
-            <div className="row" style={{ overflowY: "auto"}}>
-                <h3 className="text-center">Open Classes</h3>
+            <div className="row" style={{ overflowY: "auto" }}>
+                <h3 className="text-center">Open Classes</h3><br/><br/>
                 {
                     courses.map(item => <Classes data={item} />)
                 }
